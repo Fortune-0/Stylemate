@@ -2,8 +2,7 @@
 """Category table for type of clothing item"""
 
 from models.base import Base
-from sqlalchemy import String
-from sqlalchemy.orm import Column
+from sqlalchemy import Column, String
 
 class Category(Base):
     """Category class"""
