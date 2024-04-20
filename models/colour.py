@@ -2,8 +2,7 @@
 """Mapped Colour class for table of allowed colours"""
 
 from models.base import Base
-from sqlalchemy inport String
-from sqlalchemy.orm import Column
+from sqlalchemy import Column, String 
 
 class Colour(Base):
     """Colour table mapped class"""
