@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Dictionary that stores common colours"""
-# from models.base import BaseItem
+from models.base import BaseItem
 
 colours_dict = dict({
     "red" : "255,0,0" ,  # RGB Hex Code for Red
