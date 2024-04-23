@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Dictionary that stores common colours"""
-from models.base import BaseItem
+# from models.base import BaseItem
 
 colours_dict = dict({
     "red" : "255,0,0" ,  # RGB Hex Code for Red
@@ -19,7 +19,26 @@ colours_dict = dict({
     "lime": "0,255,0",
     "purple": "128,0,128",
     "tan": "210,180,140",
-    "teal": "0,128,128"
+    "teal": "0,128,128",
+    "olive": "128,128,0",
+    "light brown": "181,101,29",
+    "bronze": "205,127,50",
+    "ochre": "204,119,34",
+    "black bean": "61,12,2",
+    "dark salmon": "233,150,122",
+    "chocolate": "210,105,30",
+    "sky blue": "135,206,235",
+    "royal blue": "65,105,225",
+    "dark blue": "0,0,139",
+    "cobalt": "0,71,171",
+    "imperial blue": "0,35,149",
+    "grey": "128,128,128",
+    "light grey": "211,211,211",
+    "violet": "143,0,255",
+    "indigo": "75,0,130",
+    
+    
+    
 })
 
 
