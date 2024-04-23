@@ -23,5 +23,9 @@ colours_dict = dict({
 })
 
 
-col = input(" what colour do u want? ")
-print(f"The RGB value for you desired colour is: ({colours_dict[col]})")
+try:
+    col = input("What color do you want? ")
+    rgb_value = colours_dict.get(col.lower(), "Color not found")
+    print(f"The RGB value for your desired color is: ({rgb_value})")
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
