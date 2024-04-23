@@ -2,6 +2,14 @@
 """Dictionary that stores common colours"""
 from models.base import BaseItem
 
+class colours(BaseItem):
+    """Class to represent a dictionary of common colours."""
+
+    def __init__(self, name="Colours", items=None):
+        super().__init__(name)
+        self._items = dict() if items is None else items
+
+    # @property
 colours_dict = dict({
     "red" : "255,0,0" ,  # RGB Hex Code for Red
     "green": "0,128,0", # RGB Hex Code for Green
