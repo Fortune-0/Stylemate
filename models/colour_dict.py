@@ -1,15 +1,16 @@
 #!/usr/bin/python3
+import json
+
 """Dictionary that stores common colours"""
 from models.base import BaseItem
 
 class colours(BaseItem):
     """Class to represent a dictionary of common colours."""
 
-    def __init__(self, name="Colours", items=None):
+    def __init__(self, name="Colour", items=None):
         super().__init__(name)
         self._items = dict() if items is None else items
 
-    # @property
 colours_dict = dict({
     "red" : "255,0,0" ,  # RGB Hex Code for Red
     "green": "0,128,0", # RGB Hex Code for Green
@@ -44,9 +45,8 @@ colours_dict = dict({
     "light grey": "211,211,211",
     "violet": "143,0,255",
     "indigo": "75,0,130",
-    
-    
-    
+        
+        
 })
 
 
@@ -56,3 +56,6 @@ try:
     print(f"The RGB value for your desired color is: ({rgb_value})")
 except Exception as e:
     print(f"An error occurred: {str(e)}")
+    
+# Serialize the colour_dict to JSON
+json_colour = json.dumps(colours_dict)
