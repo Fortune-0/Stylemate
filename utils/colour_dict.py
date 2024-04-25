@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
 import json
 
 """Dictionary that stores common colours"""
@@ -12,11 +11,6 @@ class colours(BaseItem):
         super().__init__(name)
         self._items = dict() if items is None else items
 
-=======
-"""Dictionary that stores common colours"""
-from models.base import BaseItem
-
->>>>>>> Anomali
 colours_dict = dict({
     "red" : "255,0,0" ,  # RGB Hex Code for Red
     "green": "0,128,0", # RGB Hex Code for Green
@@ -34,7 +28,6 @@ colours_dict = dict({
     "lime": "0,255,0",
     "purple": "128,0,128",
     "tan": "210,180,140",
-<<<<<<< HEAD
     "teal": "0,128,128",
     "olive": "128,128,0",
     "light brown": "181,101,29",
@@ -54,9 +47,6 @@ colours_dict = dict({
     "indigo": "75,0,130",
         
         
-=======
-    "teal": "0,128,128"
->>>>>>> Anomali
 })
 
 
@@ -65,11 +55,7 @@ try:
     rgb_value = colours_dict.get(col.lower(), "Color not found")
     print(f"The RGB value for your desired color is: ({rgb_value})")
 except Exception as e:
-<<<<<<< HEAD
     print(f"An error occurred: {str(e)}")
     
 # Serialize the colour_dict to JSON
 json_colour = json.dumps(colours_dict)
-=======
-    print(f"An error occurred: {str(e)}")
->>>>>>> Anomali
