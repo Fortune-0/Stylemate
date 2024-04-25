@@ -65,7 +65,7 @@ class Database:
         return (result.sex)
     
     def get_user_name(self):
-        """Gets the gender of the user"""
+        """Gets the name of the user"""
         result = self.__session__.query(Database.table_classes.get("user")).first()
         return (result.name)
         
