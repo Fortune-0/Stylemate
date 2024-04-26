@@ -58,4 +58,5 @@ except Exception as e:
     print(f"An error occurred: {str(e)}")
     
 # Serialize the colour_dict to JSON
-json_colour = json.dumps(colours_dict)
+with open ("json_files/colours.json", "w") as json_top:
+    json_colour = json.dump(json_top, colours_dict, index=3)
