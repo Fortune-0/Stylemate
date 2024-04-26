@@ -12,9 +12,9 @@ class TestDatabaseClass(unittest.TestCase):
 
     def setUp(self):
         """Create an instance of Database"""
-        self.database = Database('anomalie', 'Olaniyielect23%')
+        self.database = Database('anomalie', 'Ola')
         engine = create_engine("mysql://{}:{}@{}/stylemate_db".format("anomalie",
-                               "Olaniyielect23%", "localhost"))
+                               "Ola", "localhost"))
         Session = sessionmaker(bind=engine)
         self.__session__ = Session()
     def test_add_cty(self):
