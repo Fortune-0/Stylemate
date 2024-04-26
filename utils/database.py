@@ -68,4 +68,18 @@ class Database:
         """Gets the name of the user"""
         result = self.__session__.query(Database.table_classes.get("user")).first()
         return (result.name)
+
+    def get_cty(self, cty_name):
+        """Return description dictionary of a clothing item category"""
+        cty_result = self.__session__.query(Database.table_classes.get("tops")).all()
+        for cty in cty_result:
+            if cty.name == cty_name:
+                return ({cty.name: cty.number})
+        else:
+            cty_result = self.__session__.query(Database.table_classes.get("bottoms")).all()
+            for cty in cty_result:
+                if cty.name == cty_name:
+                    return ({cty.name: cty.number})
+            else:
+                return ({})
         

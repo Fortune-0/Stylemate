@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #Test the Database class
+from models.bottom import Bottom
 from models.top import Top
 from models.user import User
 from sqlalchemy import create_engine, insert, update
@@ -12,9 +13,9 @@ class TestDatabaseClass(unittest.TestCase):
 
     def setUp(self):
         """Create an instance of Database"""
-        self.database = Database('anomalie', 'Ola')
+        self.database = Database('anomalie', 'Olaniyielect23%')
         engine = create_engine("mysql://{}:{}@{}/stylemate_db".format("anomalie",
-                               "Ola", "localhost"))
+                               "Olaniyielect23%", "localhost"))
         Session = sessionmaker(bind=engine)
         self.__session__ = Session()
     def test_add_cty(self):
@@ -55,6 +56,17 @@ class TestDatabaseClass(unittest.TestCase):
         test_result = self.__session__.query(User).first().name
         result = self.database.get_user_name()
         self.assertEqual(test_result, result)
+    def test_get_cty(self):
+        """Test get_cty Database instance method"""
+        test_result = self.__session__.query(Bottom)\
+                      .filter_by(name = "jean trousers").first()
+        if test_result is None:
+            test_result_dict = {}
+        else:
+            test_result_dict = {test_result.name: test_result.number}
+        result = self.database.get_cty("jean trousers")
+        self.assertDictEqual(result, test_result_dict)
+
 
 
 
