@@ -69,6 +69,11 @@ outfit_bottoms_dict = {
     }
 }
 
+formal_outfits_dict = {
+    'female': [['suit skirt', 'suit'], ['jacket', 'camisole', 'plaid skirt']],
+    'male': [['tuxedo'], ['suit', 'shirt', 'trousers']]
+}
+
 while False:
     try:
         col = input("What color do you want? ")
@@ -83,3 +88,5 @@ with open ("json_files/tops.json", "w") as json_top:
     json.dump(outfit_tops_dict, json_top, indent = 3)
 with open ("json_files/bottoms.json", "w") as json_bottom:
     json.dump(outfit_bottoms_dict, json_bottom, indent = 3)
+with open ("json_files/formal_outfits.json", "w") as json_formal:
+    json.dump(formal_outfits_dict, json_formal, indent = 3)

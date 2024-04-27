@@ -82,4 +82,12 @@ class Database:
                     return ({cty.name: cty.number})
             else:
                 return ({})
+    def delete_cty(self, table_name, cty_name):
+        """Delete a particular category in a table"""
+        cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
+        for cty in cty_result:
+            if cty.name == cty_name:
+                self.__session__.delete(cty)
+                self.__session__.commit()
+
         

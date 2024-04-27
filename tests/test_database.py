@@ -66,6 +66,19 @@ class TestDatabaseClass(unittest.TestCase):
             test_result_dict = {test_result.name: test_result.number}
         result = self.database.get_cty("jean trousers")
         self.assertDictEqual(result, test_result_dict)
+    def test_delete_cty(self):
+        """Test the delete_cty Database instance method"""
+        test_obj = Top()
+        test_obj.name = 'test_cloth'
+        test_obj.number = 2
+        self.__session__.add(test_obj)
+        self.__session__.commit()
+        self.assertFalse(self.__session__.query(Top).filter_by(name = "test_cloth").first() is None)
+        self.database.delete_cty("tops", "test_cloth")
+        self.__session__.commit()
+        self.assertTrue(self.__session__.query(Top).filter_by(name = "test_cloth").first() is None)
+
+
 
 
 
