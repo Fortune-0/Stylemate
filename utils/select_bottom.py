@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """Select_bottom function for selecting bottom category"""
-from database import Database
+from utils.database import Database
 import json
 import random
 
-def select_bottom(theme, comps):
+def select_bottom(theme):
     """Selects bottom randomly from list of 'bottom' items"""
-    _database = Database()
+    _database = Database('anomalie', 'Olaniyielect23%')
 
-    with open("outfit_items/outfit_bottoms.json", "r") as outfit_botttoms:
+    with open("json_files/bottoms.json", "r") as outfit_bottoms:
         outfit_data = json.load(outfit_bottoms)
         data_filtered = []
     

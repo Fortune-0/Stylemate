@@ -57,7 +57,7 @@ outfit_tops_dict = {
 outfit_bottoms_dict = {
     'casual': {
         'male': ['jean trousers', 'cargos', 'khaki shorts'],
-        'female': ['flared skirt', 'straight skirt', 'leggings']
+        'female': ['flared skirt', 'straight skirt', 'leggings', 'jean trousers']
         },
     'dinner': {
         'male': ['pants trousers', 'silk trousers'],

@@ -5,7 +5,7 @@ import sys
 
 mydatabase = Database('anomalie', 'Olaniyielect23%')
 add_dict = {
-        'name': 'blouse',
+        'name': 'shawl',
         'number': 10
         }
 add_dict1 = {
@@ -14,4 +14,5 @@ add_dict1 = {
         }
 mydatabase.add_cty(add_dict, "tops")
 mydatabase.add_cty(add_dict1, "bottoms")
+print(mydatabase.get_all_cty("tops"))
 print(sys.path)
