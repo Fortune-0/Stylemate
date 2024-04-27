@@ -13,7 +13,7 @@ class TestDatabaseClass(unittest.TestCase):
 
     def setUp(self):
         """Create an instance of Database"""
-        self.database = Database('anomalie', 'Olaniyielect23%')
+        self.database = Database('anomalie', 'Ola')
         engine = create_engine("mysql://{}:{}@{}/stylemate_db".format("anomalie",
                                "Olaniyielect23%", "localhost"))
         Session = sessionmaker(bind=engine)
