@@ -89,5 +89,17 @@ class Database:
             if cty.name == cty_name:
                 self.__session__.delete(cty)
                 self.__session__.commit()
-
+    def no_of_items(self):
+        """Return dictionary containing number of items in total in user wardrobe"""
+        return_dict = {
+            "tops": 0,
+            "bottoms": 0
+            }
+        cty_result = self.__session__.query(Database.table_classes.get("tops")).all()
+        for item in cty_result:
+            return_dict["tops"] += item.number
+        cty_result = self.__session__.query(Database.table_classes.get("bottoms")).all()
+        for item in cty_result:
+            return_dict["bottoms"] += item.number
+        return (return_dict)
         

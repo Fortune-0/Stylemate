@@ -45,7 +45,7 @@ class TestDatabaseClass(unittest.TestCase):
     def test_get_user_sex(self):
         self.__session__.execute(
             update(User),
-            [{'name': 'Uvere Amarachi', 'age': 20, 'sex': 'Female'}]
+            [{'name': 'Amie', 'age': 20, 'sex': 'female'}]
         )
         self.__session__.commit()
         test_result = self.__session__.query(User).first().sex
@@ -77,6 +77,22 @@ class TestDatabaseClass(unittest.TestCase):
         self.database.delete_cty("tops", "test_cloth")
         self.__session__.commit()
         self.assertTrue(self.__session__.query(Top).filter_by(name = "test_cloth").first() is None)
+    def test_no_of_items(self):
+        """Test the no_of_items Database instance method"""
+        test_dict = {
+            "tops": 0,
+            "bottoms": 0
+        }
+        tops = self.__session__.query(Top)
+        bottoms = self.__session__.query(Bottom)
+        for cty in tops:
+            test_dict["tops"] += cty.number
+        for cty in bottoms:
+            test_dict["bottoms"] += cty.number
+        result_dict = self.database.no_of_items()
+        self.assertDictEqual(result_dict, test_dict)
+
+
 
 
 
