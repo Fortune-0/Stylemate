@@ -11,3 +11,4 @@ class User(Base):
     __tablename__ = "user"
     name = Column(String(60), nullable=False, primary_key=True)
     age = Column(Integer, nullable=True)
+    sex = Column(String(10), nullable=False)
