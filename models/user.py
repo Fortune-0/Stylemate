@@ -2,8 +2,7 @@
 """User class for table containging user information"""
 
 from models.base import Base
-from sqlalchemy import String, Integer
-from sqlalchemy.orm import Column
+from sqlalchemy import String, Integer, Column
 
 class User(Base):
     """Mapped User Class for user table"""
