@@ -45,7 +45,7 @@ class TestDatabaseClass(unittest.TestCase):
     def test_get_user_sex(self):
         self.__session__.execute(
             update(User),
-            [{'name': 'Uvere Amarachi', 'age': 20, 'sex': 'Female'}]
+            [{'name': 'Amie', 'age': 20, 'sex': 'female'}]
         )
         self.__session__.commit()
         test_result = self.__session__.query(User).first().sex
@@ -66,6 +66,35 @@ class TestDatabaseClass(unittest.TestCase):
             test_result_dict = {test_result.name: test_result.number}
         result = self.database.get_cty("jean trousers")
         self.assertDictEqual(result, test_result_dict)
+    def test_delete_cty(self):
+        """Test the delete_cty Database instance method"""
+        test_obj = Top()
+        test_obj.name = 'test_cloth'
+        test_obj.number = 2
+        self.__session__.add(test_obj)
+        self.__session__.commit()
+        self.assertFalse(self.__session__.query(Top).filter_by(name = "test_cloth").first() is None)
+        self.database.delete_cty("tops", "test_cloth")
+        self.__session__.commit()
+        self.assertTrue(self.__session__.query(Top).filter_by(name = "test_cloth").first() is None)
+    def test_no_of_items(self):
+        """Test the no_of_items Database instance method"""
+        test_dict = {
+            "tops": 0,
+            "bottoms": 0
+        }
+        tops = self.__session__.query(Top)
+        bottoms = self.__session__.query(Bottom)
+        for cty in tops:
+            test_dict["tops"] += cty.number
+        for cty in bottoms:
+            test_dict["bottoms"] += cty.number
+        result_dict = self.database.no_of_items()
+        self.assertDictEqual(result_dict, test_dict)
+
+
+
+
 
 
 
