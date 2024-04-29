@@ -23,6 +23,8 @@ class Database:
 
     def get_all_cty(self, table_name):
         """Return list of all clothing item categories in given table"""
+        if table_name not in Database.table_classes.keys():
+            return ("'{}' table does not exist".format(table_name))
         cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
         cty_list = []
         for cty in cty_result:
@@ -31,6 +33,8 @@ class Database:
 
     def get_cty_numbers(self, table_name):
         """Return dictionary of all clothing item categories in given table and their numbers"""
+        if table_name not in Database.table_classes.keys():
+            return ("'{}' table does not exist".format(table_name))
         cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
         cty_dict = {}
         for cty in cty_result:
@@ -46,6 +50,8 @@ class Database:
         Add a clothing item category to a table; accepts dictionary
         Sample input: {'name': 'shirt', 'number': 5}
         """
+        if table_name not in Database.table_classes.keys():
+            return ("'{}' table does not exist".format(table_name))
         possible_dup = self.__session__.query(Database.table_classes.get(table_name))\
                        .filter_by(name=cty.get('name')).first()
         if possible_dup is None:
@@ -81,9 +87,11 @@ class Database:
                 if cty.name == cty_name:
                     return ({cty.name: cty.number})
             else:
-                return ({})
+                return ("User does not have any '{}'".format(cty_name))
     def delete_cty(self, table_name, cty_name):
         """Delete a particular category in a table"""
+        if table_name not in Database.table_classes.keys():
+            return ("'{}' table does not exist".format(table_name))
         cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
         for cty in cty_result:
             if cty.name == cty_name:
@@ -91,7 +99,7 @@ class Database:
                 self.__session__.commit()
                 return ({})
         else:
-            return ("The '{}' category does not exist".format(cty_name))
+            return ("User does not have any '{}'".format(cty_name))
     def no_of_items(self):
         """Return dictionary containing number of items in total in user wardrobe"""
         return_dict = {

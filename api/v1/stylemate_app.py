@@ -9,6 +9,7 @@ from utils.database import Database
 from utils.select_outfit import select_outfit
 
 app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 database = Database('stylemate', 'password')
 
 @app.route('/api/v1/wardrobe', strict_slashes=False)
@@ -17,16 +18,19 @@ def get_wardrobe():
         'tops': [],
         'bottoms': []
     }
-    wardrobe['tops'] = database.get_all_cty("tops")
-    wardrobe['bottoms'] = database.get_all_cty("bottoms")
+    wardrobe['tops'] = database.get_cty_numbers("tops")
+    wardrobe['bottoms'] = database.get_cty_numbers("bottoms")
     return (jsonify(wardrobe))
 
 @app.route('/api/v1/<string:cty_name>', strict_slashes=False)
 def get_cty_info(cty_name):
+    cty_name = cty_name.replace("_", " ")
     return (jsonify(database.get_cty(cty_name)))
 
-@app.route('/api/v1/delete/<string:table_name>/<string:cty_name>', strict_slashes=False)
+@app.route('/api/v1/delete/<string:table_name>/<string:cty_name>',
+strict_slashes=False, methods=['DELETE'])
 def delete_cty(table_name, cty_name):
+    cty_name = cty_name.replace("_", " ")
     result = database.delete_cty(table_name, cty_name)
     return (jsonify(result))
 
