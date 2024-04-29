@@ -22,7 +22,7 @@ def get_wardrobe():
     wardrobe['bottoms'] = database.get_cty_numbers("bottoms")
     return (jsonify(wardrobe))
 
-@app.route('/api/v1/<string:cty_name>', strict_slashes=False)
+@app.route('/api/v1/get_info/<string:cty_name>', strict_slashes=False)
 def get_cty_info(cty_name):
     cty_name = cty_name.replace("_", " ")
     return (jsonify(database.get_cty(cty_name)))
@@ -51,7 +51,7 @@ def edit_info(table_name):
         else:
             return ("Invalid information supplied.\n Format: {'name':'...', 'number': '...'}")
 
-@app.route('/api/vi/no_of_items', strict_slashes=False)
+@app.route('/api/v1/no_of_items', strict_slashes=False)
 def get_no_of_items():
     return(jsonify(database.no_of_items()))
 
