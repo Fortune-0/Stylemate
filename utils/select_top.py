@@ -8,7 +8,7 @@ def select_top(theme, comp):
     """Selects top randomly from list of 'top' items"""
     database = Database('stylemate', 'password')
 
-    with open("json_files/tops.json", "r") as outfit_tops:
+    with open("json_files/outfit_tops.json", "r") as outfit_tops:
         outfit_data = json.load(outfit_tops)
         data_filtered = []
 
@@ -16,6 +16,7 @@ def select_top(theme, comp):
             if key == theme:
                 gender = database.get_user_sex()
                 user_tops = database.get_all_cty("tops")
+                print(user_tops)
                 data_unfiltered = outfit_data[key][gender]
                 data_filtered = []
                 for item in data_unfiltered:
@@ -26,7 +27,7 @@ def select_top(theme, comp):
                     else:
                         continue
                 if len(data_filtered) == 0:
-                    return ([])
+                    return ("User does not possess enough clothes to form outfit.")
 
                 selected_tops = []
                 if comp == 1:

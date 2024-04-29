@@ -17,7 +17,11 @@ def select_outfit(theme, mode=None):
     else:
         comp = random.choice([1, 2])
         outfit_top = select_top(theme, comp)
+        if type(outfit_top) == str:
+            return (outfit_top)
         outfit_bottom = select_bottom(theme)
+        if type(outfit_bottom) == str:
+            return (outfit_bottom)
 
         top_str = ""
         if comp == 2:
