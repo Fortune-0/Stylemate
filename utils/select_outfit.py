@@ -18,13 +18,14 @@ def select_outfit(theme, mode=None):
         comp = random.choice([1, 2])
         outfit_top = select_top(theme, comp)
         outfit_bottom = select_bottom(theme)
-    
+
         top_str = ""
         if comp == 2:
             top_str = "A {} and a {}".format(outfit_top[0][0], outfit_top[0][1])
         else:
+            print(outfit_top)
             top_str = "A {}".format(outfit_top[0])
-        
+        print(outfit_bottom)
         bottom_str = "a {}".format(outfit_bottom[0])
-    
+
         return ("{}, and {}".format(top_str, bottom_str))
