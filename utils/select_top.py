@@ -6,12 +6,12 @@ import random
 
 def select_top(theme, comp):
     """Selects top randomly from list of 'top' items"""
-    database = Database('anomalie', 'Olaniyielect23%')
+    database = Database('stylemate', 'password')
 
     with open("json_files/tops.json", "r") as outfit_tops:
         outfit_data = json.load(outfit_tops)
         data_filtered = []
-    
+
         for key in outfit_data.keys():
             if key == theme:
                 gender = database.get_user_sex()
@@ -24,10 +24,10 @@ def select_top(theme, comp):
                     elif type(item) == list and all(i in user_tops for i in item):
                         data_filtered.append(item)
                     else:
-                        continue 
+                        continue
                 if len(data_filtered) == 0:
                     return ([])
-            
+
                 selected_tops = []
                 if comp == 1:
                     selected_tops.append(random.choice([i for i in data_filtered if type(i) != list]))

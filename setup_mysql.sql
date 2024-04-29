@@ -2,5 +2,5 @@
 
 CREATE DATABASE IF NOT EXISTS stylemate_db;
 CREATE USER IF NOT EXISTS 'stylemate'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON 'stylemate_db'.* TO 'stylemate'@'localhost';
+GRANT ALL PRIVILEGES ON stylemate_db.* TO 'stylemate'@'localhost';
 FLUSH PRIVILEGES;
