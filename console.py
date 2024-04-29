@@ -6,13 +6,13 @@ from models.user import User
 from utils.database import Database
 import json
 import json_files
-
+import mysql.connector
 
 
 class StyleMate (cmd.Cmd):
     """The StyleMate command line interface."""
     prompt  = '(StyleMate)'
-    intro   = "Welcome to the StyleMate Command Line Interface! Type help or ? to list commands.\n" \
+    intro   = "Welcome to the StyleMate Command Line Interface! \n\n Type help or ? to list all avaliable commands.\n" \
             "To exit type exit or ctrl-d.\n\n"
             
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}    
@@ -57,8 +57,29 @@ class StyleMate (cmd.Cmd):
              
         pass
     
-    def do_delete(self, *args):
-        """"""
+    def do_delete(self, item_id):
+        """ Delete item with the item_id from database"""
+        try:
+            conn = mysql.connector.connect(
+                host = "localhost",
+                user = "root",
+                Database = "StyleMate_db",
+                password = "password"
+            )
+            cursor = conn.cursor()
+            
+            cursor.execute(f"Delete selected item with the {item_id} from the database")
+            
+            conn.commit()
+            
+            print(f"Item with {item_id} has been deleted.")
+        except Exception as e:
+            print(f"Error deleting item: {str(e)}")
+        finally:
+            conn.close()
+    
+    def do_select(self, *args):
+        """Select outfit"""
         pass
     
     def lastcmd(self):
@@ -69,15 +90,15 @@ class StyleMate (cmd.Cmd):
         """Restart the CLI"""
         pass
     
-    def do_create(self, *args):
-        """ Create an object"""
-        if not args:
-            print ("** Class name missing **")
-            return
-        elif args not in StyleMate.classes:
-            print("** Class dosen't exist **")
-    
-        pass
+    # def do_create_user(username, password):
+    #     """ Create a new User"""
+    #     try:
+    #         conn = mysql.connector.connect(
+    #             host = "localhost"
+    #             user = "root"
+    #             pass
+    #         )
+        
 
                     
 if __name__ == "__main__":
