@@ -10,9 +10,9 @@ from sqlalchemy.orm import sessionmaker
 
 class Database:
     """Database class possessing useful methods for working with stylemate database"""
-    
+
     table_classes = {"tops": Top, "bottoms": Bottom, "user": User}
-    
+
     def __init__(self, username, password):
         """Object instatiation"""
         self.__engine__ = create_engine("mysql://{}:{}@localhost/stylemate_db".
@@ -20,7 +20,7 @@ class Database:
         Base.metadata.create_all(self.__engine__)
         Session = sessionmaker(bind=self.__engine__)
         self.__session__ = Session()
-        
+
     def get_all_cty(self, table_name):
         """Return list of all clothing item categories in given table"""
         cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
@@ -28,7 +28,7 @@ class Database:
         for cty in cty_result:
             cty_list.append(cty.name)
         return (cty_list)
-    
+
     def get_cty_numbers(self, table_name):
         """Return dictionary of all clothing item categories in given table and their numbers"""
         cty_result = self.__session__.query(Database.table_classes.get(table_name)).all()
@@ -36,11 +36,11 @@ class Database:
         for cty in cty_result:
             cty_dict.update({cty.name: cty.number})
         return (cty_dict)
-    
+
     def close_session(self):
         """Close current session"""
         self.__session__.close()
-        
+
     def add_cty(self, cty, table_name):
         """
         Add a clothing item category to a table; accepts dictionary
@@ -58,12 +58,12 @@ class Database:
         return_result = self.__session__.query(Database.table_classes.get(table_name))\
             .filter_by(name=cty.get('name')).first()
         return([return_result.name, return_result.number])
-            
+
     def get_user_sex(self):
         """Gets the gender of the user"""
         result = self.__session__.query(Database.table_classes.get("user")).first()
         return (result.sex)
-    
+
     def get_user_name(self):
         """Gets the name of the user"""
         result = self.__session__.query(Database.table_classes.get("user")).first()
@@ -89,6 +89,9 @@ class Database:
             if cty.name == cty_name:
                 self.__session__.delete(cty)
                 self.__session__.commit()
+                return ({})
+        else:
+            return ("The '{}' category does not exist".format(cty_name))
     def no_of_items(self):
         """Return dictionary containing number of items in total in user wardrobe"""
         return_dict = {
@@ -102,4 +105,4 @@ class Database:
         for item in cty_result:
             return_dict["bottoms"] += item.number
         return (return_dict)
-        
+

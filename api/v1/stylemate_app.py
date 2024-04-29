@@ -3,6 +3,7 @@
 
 from flask import Flask
 from flask import jsonify
+from flask import request
 import json
 from utils.database import Database
 from utils.select_outfit import select_outfit
@@ -26,16 +27,25 @@ def get_cty_info(cty_name):
 
 @app.route('/api/v1/delete/<string:table_name>/<string:cty_name>', strict_slashes=False)
 def delete_cty(table_name, cty_name):
-    database.delete_cty(table_name, cty_name)
-    return(jsonify({}))
+    result = database.delete_cty(table_name, cty_name)
+    return (jsonify(result))
 
 @app.route('/api/v1/outfit/<string:theme>', strict_slashes=False)
 def get_outfit(theme):
     return (jsonify(select_outfit(theme)))
 
-@app.route('/api/v1/add_info/<string:table_name>/<string:cty_name>', strict_slashes=False)
-def edit_info(table_name, cty_name):
-    return (jsonify(database.add_cty(cty_name, table_name)))
+@app.route('/api/v1/add_info/<string:table_name>',
+strict_slashes=False, methods=['POST'])
+def edit_info(table_name):
+    try:
+        cty = request.get_json()
+    except Exception as e:
+        return (e)
+    else:
+        if 'name' and 'number' in cty.keys():
+            return (jsonify(database.add_cty(cty, table_name)))
+        else:
+            return ("Invalid information supplied.\n Format: {'name':'...', 'number': '...'}")
 
 @app.route('/api/vi/no_of_items', strict_slashes=False)
 def get_no_of_items():
