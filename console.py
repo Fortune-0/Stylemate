@@ -7,13 +7,14 @@ from utils.database import Database
 import json
 import json_files
 import mysql.connector
-
+import sys
+import os
 
 class StyleMate (cmd.Cmd):
     """The StyleMate command line interface."""
     prompt  = '(StyleMate)'
     intro   = "Welcome to the StyleMate Command Line Interface! \n\n Type help or ? to list all avaliable commands.\n" \
-            "To exit type exit or ctrl-d.\n\n"
+            "To exit type exit exit .\n\n"
             
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}    
                   
@@ -78,9 +79,30 @@ class StyleMate (cmd.Cmd):
         finally:
             conn.close()
     
-    def do_select(self, *args):
-        """Select outfit"""
-        pass
+    def do_total(self, count_id):
+        """Prints the total number of outfits avaliable"""
+        try:
+            conn = mysql.connector.connect(
+                host = "localhost",
+                user = "root",
+                Database = "StyleMate_db",
+                password = "password"
+            )
+            cursor = conn.cursor()
+            
+            cursor.execute(f"SELECT COUNT(*) ")
+            # count all the otfits
+            total_count = cursor.fetchone()[0]
+            
+            conn.commit()
+            
+            print(f"Total outfits avaliable {total_count}.")
+        except Exception as e:
+            print(f"Error retriving total number of outfits : {str(e)}")
+            
+        finally:
+            conn.close()
+        
     
     def lastcmd(self):
         """Last non empty command prefix seen"""
@@ -88,7 +110,11 @@ class StyleMate (cmd.Cmd):
     
     def do_restart(self, *args):
         """Restart the CLI"""
-        pass
+        print('Restarting...')
+        os.system('python console.py')
+        # os._exit(1)
+        # sys.restart
+        
     
     # def do_create_user(username, password):
     #     """ Create a new User"""
