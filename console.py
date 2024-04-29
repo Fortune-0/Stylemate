@@ -34,7 +34,7 @@ class StyleMate (cmd.Cmd):
 
     # Retrives all the items from json_file (tops & bottom.json)
     def do_show(self, *args):
-        """show waldrope"""
+        """show wardrobe"""
         with open('json_files/tops.json', 'r') as f:
             data_tops = json.load(f)
 
