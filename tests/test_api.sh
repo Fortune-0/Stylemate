@@ -1,0 +1,7 @@
+curl -X GET "http://0.0.0.0:5000/api/v1/outfit_items"
+curl -X GET "http://0.0.0.0:5000/api/v1/no_of_items"
+curl -X GET "http://0.0.0.0:5000/api/v1/get_info/jean_trousers"
+curl -X POST -H "Content-Type: application/json" -d '{"name":"camisole", "number": 100}' "http://0.0.0.0:5000/api/v1/add_info/tops"
+curl -X GET "http://0.0.0.0:5000/api/v1/outfit/formal"
+curl -X GET "http://0.0.0.0:5000/api/v1/wardrobe"
+curl -X DELETE "http://0.0.0.0:5000/api/v1/delete/tops/plain_blouse"
