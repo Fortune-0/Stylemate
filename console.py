@@ -9,14 +9,21 @@ import json_files
 import mysql.connector
 import sys
 import os
+# from utils.database import Session
 
-class StyleMate (cmd.Cmd):
+class StyleMate(cmd.Cmd):
     """The StyleMate command line interface."""
-    prompt  = '(StyleMate)'
-    intro   = "Welcome to the StyleMate Command Line Interface! \n\n Type help or ? to list all avaliable commands.\n" \
-            "To exit type exit exit .\n\n"
+    prompt = '(StyleMate)'
+    intro = "Welcome to the StyleMate Command Line Interface!\n\nType help or ? to list all available commands.\n"\
+            "To exit type exit or press Ctrl+D.\n\n"
+    classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}
+
+    def __init__(self):
+        super().__init__()
+        username = "user",
+        password = ""
+        self.database = Database(self, username, password)
             
-    classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}    
                   
     def do_exit(self, *args):
         """Exit the program and return to shell"""
@@ -64,7 +71,7 @@ class StyleMate (cmd.Cmd):
             conn = mysql.connector.connect(
                 host = "localhost",
                 user = "root",
-                Database = "StyleMate_db",
+                database = "StyleMate_db",
                 password = "password"
             )
             cursor = conn.cursor()
@@ -81,11 +88,12 @@ class StyleMate (cmd.Cmd):
     
     def do_total(self, count_id):
         """Prints the total number of outfits avaliable"""
+        conn = None
         try:
             conn = mysql.connector.connect(
                 host = "localhost",
                 user = "root",
-                Database = "StyleMate_db",
+                database = "StyleMate_db",
                 password = "password"
             )
             cursor = conn.cursor()
@@ -102,8 +110,29 @@ class StyleMate (cmd.Cmd):
             
         finally:
             conn.close()
-        
     
+    def do_get_user_sex(self, *args):
+        """ Gets the gender of the User """
+        try:
+            user_sex = self.__Session__.query(Database.table_classes.get("User")).first()
+            if user_sex:
+                print(f"Gender: {user_sex}")
+            else:
+                print("Current User not found in Database, please sign-up")
+        except Exception as e:
+                print(f"Error retriving User's gender: {str(e)} ")
+        
+    def  do_get_user_name(self, *args):
+        """ Gets the user name of the current User """
+        try:
+            user_name = self.__Session__.query(Database.table_classes("User").username)
+            if user_name:
+                print(f" Hey: {user_name} :")
+            else:
+                print("User not found!!!!")
+        except Exception as e:
+            print("An error occured : ", str(e))
+                
     def lastcmd(self):
         """Last non empty command prefix seen"""
         pass
