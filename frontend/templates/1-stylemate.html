@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="static/styles/1-css_stylemate.css">
-        <script src="static/js/1-js_stylemate.js"></script>
-	<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/static/js/1-js_stylemate.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </head>
     <header>
         <span class="header"> Welcome to Stylemate </span>
@@ -13,10 +12,10 @@
     <div class="desc"><h6>Get outfit recommendations based on your wardrobe...</h6></div>
     <div class="container">
         <div class="outfit content">
-            <button class="select getoutfit">Get Your Outfit Combination</button>
+            <button class="select getoutfit" type="button" onclick=goOutfit()>Get Your Outfit Combination</button>
         </div>
         <div class="describe content">
-            <button class="select describe" >Describe Your Wardrobe</button>
+            <button class="select describe" type="button" onclick=goDescribe()>Describe Your Wardrobe</button>
         </div>
     </div>
         <footer>

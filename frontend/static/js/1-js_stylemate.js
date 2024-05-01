@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  $('button.getoutfit').click(function () {
-    window.location.href = '2-stylemate.html';
-    $(this).text('ggggg');
-  });
-});
+function goOutfit () {
+  window.location.href = "/getoutfit";
+}
+function goDescribe () {
+  window.location.href = "/getdescribe";
+}
