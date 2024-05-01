@@ -1,3 +1,7 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+}
 div.outfit {
     top: 20%;
 }
@@ -6,17 +10,17 @@ div.describe {
     right: 0;
 }
 div.wardrobe {
-    top: 60%;
+    top: 70%;
     right: 25%;
 }
 div.content {
     position: absolute;
     width: 50%;
-    height: 20%
+    height: 20%;
 }
 div.container {
     position: relative;
-    top: 100px;
+    top: 150px;
     height: 200px
 }
 
@@ -28,6 +32,8 @@ button.select {
     background-color: #994499;
     box-shadow: 6px 6px rgb(223, 123, 143);
     border-radius: 6px;
+    color: antiquewhite;
+    font-size: 17px;
 }
 footer {
     position: fixed;
@@ -41,13 +47,26 @@ footer {
     bottom: 0;
     left: 0
 }
-h6 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #455555;
+.desc {
+    position: relative;
+    color: #752b75;
+    top: 55px;
+    text-align: center;
 }
 .header {
+    position: fixed;
+    top: 0;
+    padding-top: 15px;
     font-size: 50px;
-    font-family: fantasy;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: crimson;
+    background-color: rgb(248, 247, 245);
+    height: 90px;
+    width: 100%;
+    text-align:center
+}
+.header:hover {
+    color: darkred;
 }
 button:hover {
     background-color: rgb(223, 123, 143, 12);
