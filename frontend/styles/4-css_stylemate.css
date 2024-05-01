@@ -3,16 +3,20 @@ html {
     background-color: antiquewhite;
 }
 div.outfit {
-    top: 40%;
+    top: 20%;
 }
 div.describe {
+    top: 20%;
     right: 0;
+}
+div.wardrobe {
+    top: 70%;
+    right: 25%;
 }
 div.content {
     position: absolute;
     width: 50%;
-    height: 40%;
-    top: 40%;
+    height: 20%;
 }
 div.container {
     position: relative;
@@ -29,7 +33,7 @@ button.select {
     box-shadow: 6px 6px rgb(223, 123, 143);
     border-radius: 6px;
     color: antiquewhite;
-    font-size: 100%;
+    font-size: 17px;
 }
 footer {
     position: fixed;
