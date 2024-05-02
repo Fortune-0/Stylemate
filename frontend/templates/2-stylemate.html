@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="static/styles/2-css_stylemate.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="/static/js/2-js_stylemate.js"></script>
     </head>
     <header>
         <span class="header"> Welcome to Stylemate </span>
@@ -16,13 +18,13 @@
             <button type="button" >Formal</button>
         </div>
         <div class="theme3 theme">
-            <button type="button" >Dinner</button>
+            <button type="button">Dinner</button>
         </div>
         <div class="theme4 theme">
-            <button type="button">Exercise</button>
+            <button type="button" onclick=getOut()>Exercise</button>
         </div>
         <div class="display">
-
+            <p id="displayP">random text</p>
         </div>
     </div>
         <footer>

@@ -29,7 +29,7 @@ footer {
     box-shadow: 2px 2px #551455;
     top: 30%;
     height: 40%
-} 
+}
 .theme1 {
     left: 10%;
 }
@@ -62,7 +62,7 @@ footer {
 }
 .header:hover {
     color: darkred;
-}    
+}
 button {
     position: absolute;
     width: 60%;
@@ -75,13 +75,16 @@ button:hover {
 }
 .display {
     position: relative;
-    top: 180px;;    
+    top: 180px;;
     height: 200px;
     border: 1px solid gray;
     width: 70%;
     left: 15%;
     background-color: rgb(252, 220, 226);
     border-radius: 5px;
+    font-size: 60px;
+    color: purple;
+    text-align: center
 }
 .display:hover {
     background-color: rgb(241, 209, 214);

@@ -4,12 +4,14 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask_cors import CORS
 import json
 from utils.database import Database
 from utils.select_outfit import select_outfit
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 database = Database('stylemate', 'password')
 
 @app.route('/api/v1/wardrobe', strict_slashes=False)
@@ -32,11 +34,12 @@ strict_slashes=False, methods=['DELETE'])
 def delete_cty(table_name, cty_name):
     cty_name = cty_name.replace("_", " ")
     result = database.delete_cty(table_name, cty_name)
-    return (jsonify(result))
+    return (result)
 
 @app.route('/api/v1/outfit/<string:theme>', strict_slashes=False)
 def get_outfit(theme):
-    return (jsonify(select_outfit(theme)))
+    return (jsonify(select_outfit(theme.lower())))
+    print(theme)
 
 @app.route('/api/v1/add_info/<string:table_name>',
 strict_slashes=False, methods=['POST'])
