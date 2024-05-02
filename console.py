@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Command line interface"""
 import cmd
 from models.base import BaseItem
 from models.bottom import Bottom
