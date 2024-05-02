@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 import cmd
 from models.base import BaseItem
 from models.bottom import Bottom
@@ -14,14 +14,17 @@ import os
 
 class StyleMate(cmd.Cmd):
     """The StyleMate command line interface."""
-    prompt = '(StyleMate)'
+    prompt = '(StyleMate) ## '
     intro = "Welcome to the StyleMate Command Line Interface!\n\nType help or ? to list all available commands.\n"\
             "To exit type exit or press Ctrl+D.\n\n"
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}
+    
+    # def __init__(self):
+    #     super().__init__()
+    #     username = "",
+    #     password = ""
+    #     self.database = Database(username, password)
 
-    # username = "",
-    # password = ""
-    # database = Database(username, password)
 
     def do_category(self, database):
         """get category"""
@@ -37,18 +40,22 @@ class StyleMate(cmd.Cmd):
 
         except Exception as e:
             print(f"Error retriving database {str(e)}")
+            
+    def do_add():
+        """Adds a category"""
+        pass
 
-    def do_exit(self):
+    def do_exit(self, arg):
         """Exit the program and return to shell"""
         return True
     
     def emptyline(self):
         """ overides the empty line method """
         pass
-    def do_list(self, *args):
-        """Show list of avaliable commands"""
-        print("all avaliable commands")
-        pass
+    # def do_list(self, arg):
+    #     """Show list of avaliable commands"""
+    #     print("all avaliable commands")
+    #     pass
 
     # Retrives all the items from json_file (tops & bottom.json)
     def do_show(self, *args):
@@ -79,12 +86,12 @@ class StyleMate(cmd.Cmd):
 
         pass
 
-    def do_delete(self, database, table_name, item_id):
+    def do_delete(self, Database, table_name, item_id):
         """ Delete item with the item_id from database"""
         try:
-            item = database.get_item_by_id(table_name, item_id)
+            item = Database.get_item_by_id(table_name, item_id)
             if item:
-                database.delete_item(table_name, item_id)
+                Database.delete_item(table_name, item_id)
                 print(f"{item_id} deleted from {table_name}")
 
             else:
@@ -122,39 +129,14 @@ class StyleMate(cmd.Cmd):
             print('Please enter a valid category')
         except  Exception as e:
             print(f"An error occured: {str(e)}")
-            
-    #     conn = None
-    #     try:
-    #         conn = mysql.connector.connect(
-    #             host = "localhost",
-    #             user = "root",
-    #             database = "StyleMate_db",
-    #             password = "password"
-    #         )
-    #         cursor = conn.cursor()
-
-    #         cursor.execute(f"SELECT COUNT(*) ")
-    #         # count all the otfits
-    #         total_count = cursor.fetchone()[0]
-
-    #         conn.commit()
-
-    #         print(f"Total outfits avaliable {total_count}.")
-    #     except Exception as e:
-    #         print(f"Error retriving total number of outfits : {str(e)}")
-
-    #     finally:
-    #         conn.close()
-    # def do_add():
-    #     pass
-    
-    def do_gender(self, database, user_id):
+                
+    def do_gender(self, user_id):
         """ Gets the gender of the User """
         try:
 
-            gender = database.get_gender(user_id)
+            gender = self.database.get_gender(user_id)
             if gender:
-                print(f"User is a: {gender}")
+                print(f"User {user_id} is a: {gender}")
             else:
                 print(f"Gender infomation for {user_id} not found in the database.")
         except Exception as e:
@@ -169,16 +151,16 @@ class StyleMate(cmd.Cmd):
         # except Exception as e:
         #         print(f"Error retriving User's gender: {str(e)} ")
 
-    def  do_get_user_name(self, *args):
-        """ Gets the user name of the current User """
-        try:
-            user_name = self.__Session__.query(Database.table_classes("User").username)
-            if user_name:
-                print(f" Hey: {user_name} :")
-            else:
-                print("User not found!!!!")
-        except Exception as e:
-            print("An error occured : ", str(e))
+    # def  do_user_name(self, *args):
+    #     """ Gets the user name of the current User """
+    #     try:
+    #        user = Database.get_user_name():
+    #         if user:
+    #             print(f" Hey: {user} :")
+    #         else:
+    #             print("User not found!!!!")
+    #     except Exception as e:
+    #         print("An error occured : ", str(e))
 
     def lastcmd(self):
         """Last non empty command prefix seen"""
@@ -189,19 +171,6 @@ class StyleMate(cmd.Cmd):
         print('Restarting...')
         os.system('python console.py')
         # os._exit(1)
-        # sys.restart
-
-
-    # def do_create_user(username, password):
-    #     """ Create a new User"""
-    #     try:
-    #         conn = mysql.connector.connect(
-    #             host = "localhost"
-    #             user = "root"
-    #             pass
-    #         )
-
-
-
+        
 if __name__ == "__main__":
     StyleMate().cmdloop()
