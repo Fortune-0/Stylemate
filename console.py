@@ -1,3 +1,4 @@
+#!usr/bin/python3
 import cmd
 from models.base import BaseItem
 from models.bottom import Bottom
@@ -37,9 +38,10 @@ class StyleMate(cmd.Cmd):
         except Exception as e:
             print(f"Error retriving database {str(e)}")
 
-    def do_exit(self, *args):
+    def do_exit(self):
         """Exit the program and return to shell"""
         return True
+    
     def emptyline(self):
         """ overides the empty line method """
         pass
@@ -111,32 +113,41 @@ class StyleMate(cmd.Cmd):
     #     finally:
     #         conn.close()
 
-    def do_total(self, count_id):
+    def do_total(self, database, table_name, count_id):
         """Prints the total number of outfits avaliable"""
-        conn = None
         try:
-            conn = mysql.connector.connect(
-                host = "localhost",
-                user = "root",
-                database = "StyleMate_db",
-                password = "password"
-            )
-            cursor = conn.cursor()
+            total = database.get_total(table_name, count_id)
+            print("You have {count_id} Outfits Avaliable in {table_name}: ", {total})
+        except IndexError:
+            print('Please enter a valid category')
+        except  Exception as e:
+            print(f"An error occured: {str(e)}")
+            
+    #     conn = None
+    #     try:
+    #         conn = mysql.connector.connect(
+    #             host = "localhost",
+    #             user = "root",
+    #             database = "StyleMate_db",
+    #             password = "password"
+    #         )
+    #         cursor = conn.cursor()
 
-            cursor.execute(f"SELECT COUNT(*) ")
-            # count all the otfits
-            total_count = cursor.fetchone()[0]
+    #         cursor.execute(f"SELECT COUNT(*) ")
+    #         # count all the otfits
+    #         total_count = cursor.fetchone()[0]
 
-            conn.commit()
+    #         conn.commit()
 
-            print(f"Total outfits avaliable {total_count}.")
-        except Exception as e:
-            print(f"Error retriving total number of outfits : {str(e)}")
+    #         print(f"Total outfits avaliable {total_count}.")
+    #     except Exception as e:
+    #         print(f"Error retriving total number of outfits : {str(e)}")
 
-        finally:
-            conn.close()
-    def do_add():
-        pass
+    #     finally:
+    #         conn.close()
+    # def do_add():
+    #     pass
+    
     def do_gender(self, database, user_id):
         """ Gets the gender of the User """
         try:
