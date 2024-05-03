@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 database = Database('stylemate', 'password')
+printme = Printme()
 
 @app.route('/api/v1/wardrobe', strict_slashes=False)
 def get_wardrobe():
@@ -73,6 +74,11 @@ def get_outfit_items():
         outfit_items['formal_outfits'] = json.load(formal_outfits)
     return (jsonify(outfit_items))
 
+@app.route('/api/v1/get_description', strict_slashes=False, methods=['POST'])
+def handle_description():
+    return (jsonify("Done"))
+    print("Just so they know I print")
+    printme.print_form(request.form)
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
