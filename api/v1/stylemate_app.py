@@ -13,7 +13,6 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 database = Database('stylemate', 'password')
-printme = Printme()
 
 @app.route('/api/v1/wardrobe', strict_slashes=False)
 def get_wardrobe():
@@ -76,9 +75,18 @@ def get_outfit_items():
 
 @app.route('/api/v1/get_description', strict_slashes=False, methods=['POST'])
 def handle_description():
-    return (jsonify("Done"))
-    print("Just so they know I print")
-    printme.print_form(request.form)
+    try:
+        form_obj = request.form
+    except Exception as e:
+        return (e)
+    else:
+        #forbidden_vals = {"bottoms", "tops"}
+        table_name = form_obj.get('table')
+        for name, val in form_obj.items():
+            if (name != 'table'):
+            	cty = {'name': name, 'number': val}
+            	database.add_cty(cty, table_name)
+        return (jsonify("Your data has been successfully recorded!"))
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
