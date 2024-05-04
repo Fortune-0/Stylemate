@@ -7,7 +7,7 @@ from models.user import User
 from utils.database import Database
 import json
 import json_files
-import mysql.connector
+# import mysql.connector
 import sys
 import os
 # from utils.database import Session
@@ -19,11 +19,11 @@ class StyleMate(cmd.Cmd):
             "To exit type exit or press Ctrl+D.\n\n"
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}
     
-    # def __init__(self):
-    #     super().__init__()
-    #     username = "",
-    #     password = ""
-    #     self.database = Database(username, password)
+    def __init__(self):
+        super().__init__()
+        username = "",
+        password = ""
+        self.database = Database(username, password)
 
 
     def do_category(self, database):
@@ -99,8 +99,7 @@ class StyleMate(cmd.Cmd):
 
         except Exception as e:
             print(f"Unexpected error: {e}")
-
-
+    
     #     try:
     #         conn = mysql.connector.connect(
     #             host = "localhost",
