@@ -4,7 +4,7 @@ html {
 }
 footer {
     position: fixed;
-    height: 30px;
+    height: 50px;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 100;
@@ -17,7 +17,7 @@ footer {
 .desc {
     position: relative;
     color: #752b75;
-    top: 55px;
+    top: 50px;
     text-align: center;
 }
 .cty1 {
@@ -94,12 +94,12 @@ input {
 }
 .submit_div {
     position: relative;
-    top: 450px;
-    width: 10%;
-    height: 10%;
-    left: 900px;
+    top: 500px;
+    width: 2%;
+    height: 5%;
+    left: 1000px;
 }
-button.submit {
+button.sub {
     background-color: crimson;
     border-radius: 5px;
     height: 40px;
@@ -109,4 +109,17 @@ button.submit {
 }
 button.submit:hover {
     background-color: rgb(219, 61, 92);
+}
+#submit_status {
+    position: relative;
+    display: none;
+    top: 520px;
+    height: 20px;
+    left: 1500px;
+    width: 200px;
+    font-size: 20px;
+    color: gray;
+}
+.hiddentable {
+    display: none;
 }

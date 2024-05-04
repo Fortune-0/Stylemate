@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import cmd
 from models.base import BaseItem
 from models.bottom import Bottom
@@ -18,12 +17,12 @@ class StyleMate(cmd.Cmd):
     intro = "Welcome to the StyleMate Command Line Interface!\n\nType help or ? to list all available commands.\n"\
             "To exit type exit or press Ctrl+D.\n\n"
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}
-    
-    def __init__(self):
-        super().__init__()
-        username = "",
-        password = ""
-        self.database = Database(username, password)
+
+    # def __init__(self):
+    #     super().__init__()
+    #     username = "",
+    #     password = ""
+    #     self.database = Database(username, password)
 
 
     def do_category(self, database):
@@ -40,7 +39,7 @@ class StyleMate(cmd.Cmd):
 
         except Exception as e:
             print(f"Error retriving database {str(e)}")
-            
+
     def do_add():
         """Adds a category"""
         pass
@@ -48,7 +47,7 @@ class StyleMate(cmd.Cmd):
     def do_exit(self, arg):
         """Exit the program and return to shell"""
         return True
-    
+
     def emptyline(self):
         """ overides the empty line method """
         pass
@@ -128,7 +127,7 @@ class StyleMate(cmd.Cmd):
             print('Please enter a valid category')
         except  Exception as e:
             print(f"An error occured: {str(e)}")
-                
+
     def do_gender(self, user_id):
         """ Gets the gender of the User """
         try:
@@ -170,6 +169,6 @@ class StyleMate(cmd.Cmd):
         print('Restarting...')
         os.system('python console.py')
         # os._exit(1)
-        
+
 if __name__ == "__main__":
     StyleMate().cmdloop()

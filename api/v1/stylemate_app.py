@@ -73,6 +73,20 @@ def get_outfit_items():
         outfit_items['formal_outfits'] = json.load(formal_outfits)
     return (jsonify(outfit_items))
 
+@app.route('/api/v1/get_description', strict_slashes=False, methods=['POST'])
+def handle_description():
+    try:
+        form_obj = request.form
+    except Exception as e:
+        return (e)
+    else:
+        #forbidden_vals = {"bottoms", "tops"}
+        table_name = form_obj.get('table')
+        for name, val in form_obj.items():
+            if (name != 'table'):
+            	cty = {'name': name, 'number': val}
+            	database.add_cty(cty, table_name)
+        return (jsonify("Your data has been successfully recorded!"))
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
