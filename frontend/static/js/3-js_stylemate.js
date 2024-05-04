@@ -1,7 +1,6 @@
 $(document).ready(function () {
   $('button.submit').click(function () {
     $('#describeform1').trigger('submit');
-    $('#describeform2').trigger('submit');
   });
   $('#describeform1').submit(function (event) {
     event.preventDefault();
