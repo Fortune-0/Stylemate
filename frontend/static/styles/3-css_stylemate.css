@@ -23,7 +23,6 @@ footer {
     color: #752b75;
     top: 55px;
     text-align: center;
-
 }
 .cty1 {
     position: absolute;
@@ -46,11 +45,11 @@ footer {
     color: #4b174b;
 }
 .ctys {
-    position: relative;
+    position: fixed;
     top: 80px;
     height: 500px;
     width: 100%;
-    margin: 7px;
+    margin-top: 10px;
     left: 0;
 }
 .header {
@@ -74,10 +73,11 @@ button:hover {
 label {
     list-style-type: none;
     font-size: 14px;
+    display: table-cell;
 }
 .form1 {
     position: absolute;
-    height: 70%;
+    height: 350px;
     width: 50%;
     left: 25%;
     overflow-x: hidden;
@@ -85,13 +85,17 @@ label {
     font-size: 8px;
     margin: 10px;
     padding-top: 12px;
-    line-height: 7px;
-    border: 1px solid purple;
-    border-radius: 5px;
+    line-height: 12px;
+    border: 7px solid rgb(236, 184, 219);
+    border-radius: 10px;
+    background-color: oldlace;
+    /*display: table;*/
+    padding-left: 17px;
+    text-align: justify;
 }
 .form2 {
     position: absolute;
-    height: 70%;
+    height: 350px;
     width: 50%;
     left: 25%;
     overflow-x: hidden;
@@ -99,12 +103,22 @@ label {
     font-size: 8px;
     margin: 10px;
     padding-top: 12px;
-    line-height: 7px;
-    border: 1px solid purple;
-    border-radius: 5px;
+    line-height: 12px;
+    border: 7px solid rgb(236, 184, 219);
+    border-radius: 10px;
+    background-color: oldlace;
+    padding-left: 17px;
+    text-align: justify;
+    /*display: table;*/
 }
 input {
-    width: 10%;
+    width: 15%;
+    display: table-cell;
+    margin-left: 20px;
+}
+p.forms {
+    display: table-row;
+    margin-left: 5px;
 }
 .submit_div1 {
     position: absolute;
@@ -149,13 +163,13 @@ button.sub1:hover, button.sub2:hover {
 }
 #submit_status {
     position: relative;
-    top: 520px;
+    top: 540px;
     height: 20px;
-    left: 1500px;
+    left: 600px;
     width: 200px;
-    font-size: 20px;
+    font-size: 15px;
     color: gray;
-    border: 1px solid red;
+    text-align: center;
 }
 .hiddentable {
     display: none;
