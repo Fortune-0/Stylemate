@@ -47,7 +47,7 @@ button.select {
     background-color: rgb(248, 247, 245);
     height: 90px;
     width: 100%;
-    text-align:center
+    text-align: center;
 }
 .header:hover {
     color: darkred;
