@@ -4,10 +4,11 @@ html {
 }
 footer {
     position: fixed;
-    height: 50px;
+    height: 4%;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 100;
+    padding: 10px;
     background-color: crimson;
     color: white;
     width: 100%;
@@ -15,49 +16,54 @@ footer {
     left: 0
 }
 .desc {
-    position: relative;
+    position: absolute;
+    font-size: 10px;
+    height: 15px;
+    width: 100%;
     color: #752b75;
-    top: 50px;
+    top: 55px;
     text-align: center;
+
 }
 .cty1 {
     position: absolute;
     font-size: 30px;
     font-weight: 200;
     text-align: center;
-    height: 90%;
+    height: 500px;
     width: 50%;
     color: #4b174b;
 }
 .cty2 {
     position: absolute;
+    top: 0;
     font-size: 30px;
     font-weight: 200;
     text-align: center;
-    text-align: center;
-    height: 90%;
+    height: 500px;
     width: 50%;
     left: 50%;
     color: #4b174b;
 }
 .ctys {
     position: relative;
-    top: 70px;
-    height: 70px;
-    width: 70%;
-    left: 15%
+    top: 80px;
+    height: 500px;
+    width: 100%;
+    margin: 7px;
+    left: 0;
 }
 .header {
     position: fixed;
     top: 0;
-    padding-top: 15px;
+    padding-top: 7px;
     font-size: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: crimson;
     background-color: rgb(248, 247, 245);
-    height: 90px;
+    height: 75px;
     width: 100%;
-    text-align:center
+    text-align: center;
 }
 .header:hover {
     color: darkred;
@@ -70,55 +76,86 @@ label {
     font-size: 14px;
 }
 .form1 {
-    position: relative;
-    top: 50px;
-    height: 300px;
-    border: 1px solid gray;
-    width: 80%;
-    left: 10%;
+    position: absolute;
+    height: 70%;
+    width: 50%;
+    left: 25%;
     overflow-x: hidden;
     overflow-y: auto;
+    font-size: 8px;
+    margin: 10px;
+    padding-top: 12px;
+    line-height: 7px;
+    border: 1px solid purple;
+    border-radius: 5px;
 }
 .form2 {
-    position: relative;
-    top: 50px;
-    height: 300px;
-    border: 1px solid gray;
-    width: 80%;
-    left: 10%;
+    position: absolute;
+    height: 70%;
+    width: 50%;
+    left: 25%;
     overflow-x: hidden;
     overflow-y: auto;
+    font-size: 8px;
+    margin: 10px;
+    padding-top: 12px;
+    line-height: 7px;
+    border: 1px solid purple;
+    border-radius: 5px;
 }
 input {
     width: 10%;
 }
-.submit_div {
-    position: relative;
-    top: 500px;
-    width: 2%;
-    height: 5%;
-    left: 1000px;
+.submit_div1 {
+    position: absolute;
+    bottom: 5%;
+    width: 60px;
+    height: 40px;
+    right: 45%;
+    font-size: 8px;
 }
-button.sub {
+.submit_div2 {
+    position: absolute;
+    bottom: 5%;
+    width: 60px;
+    height: 40px;
+    right: 42%;
+    font-size: 8px;
+}
+button.sub1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
     background-color: crimson;
     border-radius: 5px;
     height: 40px;
     width: 70px;
     color: antiquewhite;
-    font-size: 15px;
+    font-size: 10px;
 }
-button.submit:hover {
+button.sub2 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: crimson;
+    border-radius: 5px;
+    height: 40px;
+    width: 70px;
+    color: antiquewhite;
+    font-size: 10px;
+}
+button.sub1:hover, button.sub2:hover {
     background-color: rgb(219, 61, 92);
 }
 #submit_status {
     position: relative;
-    display: none;
     top: 520px;
     height: 20px;
     left: 1500px;
     width: 200px;
     font-size: 20px;
     color: gray;
+    border: 1px solid red;
 }
 .hiddentable {
     display: none;
