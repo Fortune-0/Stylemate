@@ -165,11 +165,12 @@ button.sub1:hover, button.sub2:hover {
     position: relative;
     top: 540px;
     height: 20px;
-    left: 600px;
+    left: 50%;
     width: 200px;
     font-size: 15px;
     color: gray;
     text-align: center;
+    display: none;
 }
 .hiddentable {
     display: none;
