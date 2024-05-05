@@ -85,8 +85,8 @@ def handle_description():
         for name, val in form_obj.items():
             if (name != 'table'):
             	cty = {'name': name, 'number': val}
-            	database.add_cty(cty, table_name)
-        return (jsonify("Your data has been successfully recorded!"))
+            	return_val = database.add_cty(cty, table_name)
+        return (jsonify(return_val))
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
