@@ -69,6 +69,8 @@ outfit_bottoms_dict = {
     }
 }
 
+status_dict = {'new': 'yes'}
+
 formal_outfits_dict = {
     'female': [['suit skirt', 'suit'], ['jacket', 'camisole', 'plaid skirt']],
     'male': [['tuxedo'], ['suit', 'shirt', 'trousers']]
@@ -81,7 +83,7 @@ while False:
         print(f"The RGB value for your desired color is: ({rgb_value})")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-    
+
 with open ("json_files/colours.json", "w") as json_colour:
     json.dump(colours_dict, json_colour, indent = 3)
 with open ("json_files/tops.json", "w") as json_top:
@@ -90,3 +92,5 @@ with open ("json_files/bottoms.json", "w") as json_bottom:
     json.dump(outfit_bottoms_dict, json_bottom, indent = 3)
 with open ("json_files/formal_outfits.json", "w") as json_formal:
     json.dump(formal_outfits_dict, json_formal, indent = 3)
+with open ("json_files/status.json", "w") as json_status:
+    json.dump(status_dict, json_status, indent = 3)
