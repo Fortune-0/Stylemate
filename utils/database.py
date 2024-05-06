@@ -113,4 +113,15 @@ class Database:
         for item in cty_result:
             return_dict["bottoms"] += item.number
         return (return_dict)
+    def set_user(self, dict):
+        """Set name and sex of user in database table user"""
+        present_users = self.__session__.query(Database.table_classes.get("user")).all()
+        for user in present_users:
+            self.__session__.delete(user)
+        self.__session__.commit()
+        new_user = Database.table_classes.get("user")(**dict)
+        self.__session__.add(new_user)
+        self.__session__.commit()
+        print(dict)
+
 

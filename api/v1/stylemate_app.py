@@ -80,13 +80,30 @@ def handle_description():
     except Exception as e:
         return (e)
     else:
+        #with open('random.json', 'w') as randm:
+        #    rand_dict = {}
+        #    for k, v in form_obj.items():
+        #        rand_dict.update({k:v})
+        #    json.dump(rand_dict, randm)
         #forbidden_vals = {"bottoms", "tops"}
         table_name = form_obj.get('table')
         for name, val in form_obj.items():
             if (name != 'table'):
             	cty = {'name': name, 'number': val}
             	return_val = database.add_cty(cty, table_name)
-        return (jsonify(return_val))
+        return (jsonify("Your input has been recorded!"))
+@app.route('/api/v1/set_user', strict_slashes=False, methods=['POST'])
+def set_user():
+    user_dict = {}
+    user_obj = request.form
+    for name, val in user_obj.items():
+        user_dict.update({name: val})
+    database.set_user(user_dict)
+    status_dict = {"new": "no"}
+    with open("json_files/status.json", "w") as status:
+        json.dump(status_dict, status, indent=3)
+    return ("User info updated")
+
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
