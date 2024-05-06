@@ -92,6 +92,18 @@ def handle_description():
             	cty = {'name': name, 'number': val}
             	return_val = database.add_cty(cty, table_name)
         return (jsonify("Your input has been recorded!"))
+@app.route('/api/v1/set_user', strict_slashes=False, methods=['POST'])
+def set_user():
+    user_dict = {}
+    user_obj = request.form
+    for name, val in user_obj.items():
+        user_dict.update({name: val})
+    database.set_user(user_dict)
+    status_dict = {"new": "no"}
+    with open("json_files/status.json", "w") as status:
+        json.dump(status_dict, status, indent=3)
+    return ("User info updated")
+
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)

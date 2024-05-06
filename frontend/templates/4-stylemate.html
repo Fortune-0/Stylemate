@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../static/styles/4-css_stylemate.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="/static/js/4-js_stylemate.js"></script>
     </head>
     <header>
         <div class="header">
@@ -30,6 +32,10 @@
                 <label><span class="subhead">Name: </span></label>
                 <input name="name" type="text" class="nametext"><br>
             </div>
+            <div id="age">
+                <label><span class="subhead">Age: </span></label>
+                <input name="age" type="number" class="ageno"><br>
+            </div>
             <div id="info">
                 <label><span class="subhead">Sex: </span></label><br>
                 <label>Male</label>
@@ -39,6 +45,9 @@
             </div>
             <button type="submit" class="submitinfo">Submit</button>
         </form>
+    </div>
+    <div class="submitstatus">
+    	Your information has been successfully submitted!
     </div>
     <footer>
         Stylemate

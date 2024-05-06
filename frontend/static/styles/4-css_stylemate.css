@@ -84,7 +84,18 @@ div.userform {
     height: 50px;
     width: 80%;
     left: 8%;
-    top: 40px;
+    top: 30px;
+    text-align: justify;
+    padding-top: 11px;
+    padding-left: 20px;
+    font-size: 15px;
+}
+#age {
+    position: absolute;
+    height: 30px;
+    width: 20%;
+    left: 8%;
+    top: 85px;
     text-align: justify;
     padding-top: 11px;
     padding-left: 20px;
@@ -95,7 +106,7 @@ div.userform {
     height: 90px;
     width: 80%;
     left: 8%;
-    top: 140px;
+    top: 150px;
     padding-left: 20px;
     text-align: justify;
     font-size: 15px;
@@ -110,6 +121,15 @@ div.userform {
 }
 .nametext:hover {
     background-color: antiquewhite;
+}
+.ageno {
+    position: absolute;
+    width: 40%;
+    margin-left: 10px;
+}
+.ageno:hover {
+    background-color: antiquewhite;
+
 }
 .subhead {
     display: inline-block;
@@ -128,4 +148,15 @@ div.userform {
 }
 .submitinfo:hover {
     background-color: rgb(177, 20, 51);
+}
+.submitstatus {
+    position: fixed;
+    display: none;
+    top: 600px;
+    height: 50px;
+    width: 30%;
+    color: gray;
+    font-size: 15px;
+    left: 35%;
+    text-align: center;
 }
