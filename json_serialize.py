@@ -72,8 +72,14 @@ outfit_bottoms_dict = {
 status_dict = {'new': 'yes'}
 
 formal_outfits_dict = {
-    'female': [['suit skirt', 'suit'], ['jacket', 'camisole', 'plaid skirt']],
-    'male': [['tuxedo'], ['suit', 'shirt', 'trousers']]
+    'female': [
+        [['suit skirt'],['suit']],
+        [['plaid skirt'], ['jacket', 'camisole']]
+        ],
+    'male': [
+        [['trousers'], ['tuxedo']],
+        [['trousers'], ['suit', 'shirt']]
+        ]
 }
 
 while False:

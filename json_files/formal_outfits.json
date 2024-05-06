@@ -1,23 +1,40 @@
 {
    "female": [
       [
-         "suit skirt",
-         "suit"
+         [
+            "suit skirt"
+         ],
+         [
+            "suit"
+         ]
       ],
       [
-         "jacket",
-         "camisole",
-         "plaid skirt"
+         [
+            "plaid skirt"
+         ],
+         [
+            "jacket",
+            "camisole"
+         ]
       ]
    ],
    "male": [
       [
-         "tuxedo"
+         [
+            "trousers"
+         ],
+         [
+            "tuxedo"
+         ]
       ],
       [
-         "suit",
-         "shirt",
-         "trousers"
+         [
+            "trousers"
+         ],
+         [
+            "suit",
+            "shirt"
+         ]
       ]
    ]
 }

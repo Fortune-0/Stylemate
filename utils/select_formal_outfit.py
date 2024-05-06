@@ -18,24 +18,18 @@ def select_formal_outfit():
         parsed_outfits = set()
         while True:
             rand_choose = random.choice(outfit_data[gender])
-            parsed_outfits.add(tuple(rand_choose))
-            if all(i in user_tops or i in user_bottoms for i in rand_choose):
+            tup_top = tuple(i if type(i) != list else i for i in rand_choose[0])
+            tup_bottom = tuple(i if type(i) != list else i for i in rand_choose[1])
+            rand_choose_tup = (tup_top, tup_bottom)
+
+            parsed_outfits.add(tuple(rand_choose_tup))
+            all_items = []
+            for part in rand_choose:
+                for item in part:
+                    all_items.append(item)
+            if all(i in user_tops or i in user_bottoms for i in all_items):
                 return (rand_choose)
             elif len(parsed_outfits) == len(outfit_data[gender]):
                 return ("User does not possess enough clothing to form outfit")
             else:
                 continue
-
-        for key in outfit_data.keys():
-            if key == theme:
-                gender = top_table.get_user_sex()
-                user_bottoms = top_table.get_all_cty("bottoms")
-                data_unfiltered = outfit_data[key][gender]
-                data_filtered = [i for i in data_unfiltered if i in user_bottoms]
-
-
-                selected_bottoms = []
-                selected_bottoms.append(random.choice(data_filtered))
-                return (selected_bottoms)
-        else:
-            return ("Invalid Theme")

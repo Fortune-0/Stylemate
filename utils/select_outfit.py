@@ -11,9 +11,13 @@ def select_outfit(theme, mode=None):
 
     if theme == 'formal':
         outfit = select_formal_outfit()
+        outfit_list = []
+        for part in outfit:
+            for item in part:
+                outfit_list.append(item)
         if type(outfit) == str:
             return (outfit)
-        return (", ".join(outfit))
+        return (", ".join(outfit_list))
     else:
         comp = random.choice([1, 2])
         outfit_top = select_top(theme, comp)
