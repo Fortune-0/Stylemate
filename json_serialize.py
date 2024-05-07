@@ -41,7 +41,7 @@ colours_dict = dict({
 
 outfit_tops_dict = {
     'casual': {
-        'male': ['t-shirt', ['round-necked sweater', 'collared shirt'], 'plain Top'],
+        'male': ['t-shirt', ['round-necked sweater', 'collared shirt'], 'plain top'],
         'female': ['plain blouse', ['sleeveless top', 'shawl'], 'turtle-necked top']
         },
     'dinner': {

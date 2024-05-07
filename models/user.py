@@ -8,6 +8,6 @@ class User(Base):
     """Mapped User Class for user table"""
 
     __tablename__ = "user"
-    name = Column(String(60), nullable=False, primary_key=True)
+    name = Column(String(100), nullable=False, primary_key=True)
     age = Column(Integer, nullable=True)
     sex = Column(String(10), nullable=False)

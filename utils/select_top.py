@@ -33,7 +33,11 @@ def select_top(theme, comp):
                 if comp == 1:
                     selected_tops.append(random.choice([i for i in data_filtered if type(i) != list]))
                 if comp == 2:
-                    selected_tops.append(random.choice([i for i in data_filtered if type(i) == list]))
+                    list_of_lists = [i for i in data_filtered if type(i) == list]
+                    if len(list_of_lists) == 0:
+                        selected_tops.append(random.choice(data_filtered))
+                    else:
+                        selected_tops.append(random.choice(list_of_lists))
                 return (selected_tops)
         if theme not in outfit_data.keys():
             return ("Invalid Theme")
