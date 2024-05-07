@@ -73,7 +73,7 @@ button:hover {
 label {
     list-style-type: none;
     font-size: 14px;
-    display: table-cell;
+    display: inline-block;
 }
 .form1 {
     position: absolute;
@@ -84,7 +84,7 @@ label {
     overflow-y: auto;
     font-size: 8px;
     margin: 10px;
-    padding-top: 12px;
+    padding-top: 6px;
     line-height: 12px;
     border: 7px solid rgb(236, 184, 219);
     border-radius: 10px;
@@ -102,7 +102,7 @@ label {
     overflow-y: auto;
     font-size: 8px;
     margin: 10px;
-    padding-top: 12px;
+    padding-top: 6px;
     line-height: 12px;
     border: 7px solid rgb(236, 184, 219);
     border-radius: 10px;
@@ -112,12 +112,11 @@ label {
     /*display: table;*/
 }
 input {
-    width: 20%;
-    display: table-cell;
-    margin-left: 20px;
+    position: absolute;
+    width: 12%;
+    right: 10px;
 }
 p.forms {
-    display: table-row;
     margin-left: 5px;
 }
 .submit_div1 {

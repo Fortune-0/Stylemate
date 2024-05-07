@@ -34,4 +34,18 @@ with open ("json_files/formal_outfits.json") as json_formal:
         for item in form_fit[1]:
             items_top_set.add(item)
 all_items = {'tops': items_top_set, 'bottoms': items_bottom_set}
-print(all_items)
+all_items_db = {}
+all_items_db.update(database.get_cty_numbers("tops"))
+all_items_db.update(database.get_cty_numbers("bottoms"))
+return_dict = {'tops': [], 'bottoms': []}
+for item in all_items['tops']:
+    if item in all_items_db.keys():
+        return_dict['tops'].append({item: all_items_db[item]})
+    else:
+        return_dict['tops'].append({item: 0})
+for item in all_items['bottoms']:
+    if item in all_items_db.keys():
+        return_dict['bottoms'].append({item: all_items_db[item]})
+    else:
+        return_dict['bottoms'].append({item: 0})
+print(return_dict)

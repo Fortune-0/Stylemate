@@ -23,17 +23,16 @@ def select_outfit(theme, mode=None):
         outfit_top = select_top(theme, comp)
         if type(outfit_top) == str:
             return (outfit_top)
+        if type(outfit_top[0]) != list:
+            comp = 1
         outfit_bottom = select_bottom(theme)
         if type(outfit_bottom) == str:
             return (outfit_bottom)
 
         top_str = ""
         if comp == 2:
-            top_str = "A {} and a {}".format(outfit_top[0][0], outfit_top[0][1])
+            top_str = "{} and {},".format(outfit_top[0][0], outfit_top[0][1])
         else:
-            print(outfit_top)
-            top_str = "A {}".format(outfit_top[0])
-        print(outfit_bottom)
-        bottom_str = "a {}".format(outfit_bottom[0])
+            top_str = "{}".format(outfit_top[0])
 
-        return ("{}, and {}".format(top_str, bottom_str))
+        return ("{} and {}".format(top_str, outfit_bottom[0]))

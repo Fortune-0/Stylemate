@@ -126,6 +126,7 @@ div.userform {
     position: absolute;
     width: 40%;
     margin-left: 10px;
+    top: 15px;
 }
 .ageno:hover {
     background-color: antiquewhite;
