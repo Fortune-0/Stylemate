@@ -115,6 +115,10 @@ class Database:
         return (return_dict)
     def set_user(self, dict):
         """Set name and sex of user in database table user"""
+        if len(dict['name']) == 0:
+            return("Name field empty. Please fill.")
+        if int(dict['age']) == 0:
+            return ("Please input valid age")
         present_users = self.__session__.query(Database.table_classes.get("user")).all()
         for user in present_users:
             self.__session__.delete(user)
@@ -123,5 +127,6 @@ class Database:
         self.__session__.add(new_user)
         self.__session__.commit()
         print(dict)
+        return ("User info updated")
 
 

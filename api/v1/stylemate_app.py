@@ -96,13 +96,16 @@ def handle_description():
 def set_user():
     user_dict = {}
     user_obj = request.form
+    if len(user_obj) != 3:
+        return ("An error occurred. Please try again")
     for name, val in user_obj.items():
         user_dict.update({name: val})
-    database.set_user(user_dict)
-    status_dict = {"new": "no"}
-    with open("json_files/status.json", "w") as status:
-        json.dump(status_dict, status, indent=3)
-    return ("User info updated")
+    reply = database.set_user(user_dict)
+    if reply == "User info updated":
+        status_dict = {"new": "no"}
+        with open("json_files/status.json", "w") as status:
+            json.dump(status_dict, status, indent=3)
+    return (reply)
 @app.route('/api/v1/get_display_items', strict_slashes=False)
 def get_outfit_items_for_display():
     user_sex = database.get_user_sex()
