@@ -6,8 +6,9 @@ html {
     position: fixed;
     width: 100%;
     background-color: rgb(248, 219, 180);
-    height: 60px;
-    top: 100px;
+    height: 52px;
+    top: 110px;
+    padding-left: 50px;
 }
 .theme {
     position: absolute;
@@ -53,8 +54,8 @@ button {
     position: absolute;
     width: 60%;
     left: 20%;
-    height: 100%;
-    top: 0;
+    height: 80%;
+    top: 10%;
     background-color: #551455;
     color: white;
     border-radius: 3px;
@@ -67,12 +68,12 @@ button:hover {
 }
 .display {
     position: fixed;
-    top: 210px;;
+    top: 210px;
     height: 100px;
     width: 60%;
     left: 20%;
     background-color: rgb(252, 220, 226);
-    font-size: 30px;
+    font-size: 25px;
     color: purple;
     text-align: center;
     padding: 20px;
@@ -106,18 +107,22 @@ footer {
 .images {
     position: relative;
     display: flex;
+    align-items: center;
     flex-direction: row;
     top: 260px;
-    height: 250px;
+    height: 260px;
     width: 80%;
-    left: 10%;
-    border: 1px solid red;
+    left: 6%;
     overflow-y: clip;
     text-align: center;
 }
 .imgdiv {
-    position: absolute;
-    width: 200px;
+    width: 25%;
     text-align: center;
     border: 1px solid green;
+    border-radius: 7px;
+    overflow-y: clip;
+    overflow-x: clip;
+    height: 250px;
 }
+
