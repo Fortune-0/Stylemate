@@ -15,7 +15,8 @@ def select_top(theme, comp):
         for key in outfit_data.keys():
             if key == theme:
                 gender = database.get_user_sex()
-                user_tops = database.get_all_cty("tops")
+                user_tops = database.get_cty_numbers("tops")
+                user_tops = {k: v for k, v in user_tops.items() if v > 0}
                 print(user_tops)
                 data_unfiltered = outfit_data[key][gender]
                 data_filtered = []

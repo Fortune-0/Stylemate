@@ -17,7 +17,7 @@ def select_outfit(theme, mode=None):
                 outfit_list.append(item)
         if type(outfit) == str:
             return (outfit)
-        return (", ".join(outfit_list))
+        return (", ".join(outfit_list).capitalize())
     else:
         comp = random.choice([1, 2])
         outfit_top = select_top(theme, comp)
@@ -35,4 +35,4 @@ def select_outfit(theme, mode=None):
         else:
             top_str = "{}".format(outfit_top[0])
 
-        return ("{} and {}".format(top_str, outfit_bottom[0]))
+        return ("{} and {}".format(top_str, outfit_bottom[0]).capitalize())
