@@ -1,5 +1,5 @@
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web', serif;
     background-color: antiquewhite;
 }
 .themes {
@@ -33,19 +33,19 @@ html {
     position: relative;
     color: #752b75;
     top: 50px;
+    font-size: 15px;
     text-align: center;
 }
 .header {
     position: fixed;
     top: 0;
-    padding-top: 15px;
+    padding-top: 5px;
     font-size: 50px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: crimson;
     background-color: rgb(248, 247, 245);
     height: 90px;
     width: 100%;
-    text-align:center
+    text-align: center
 }
 .header:hover {
     color: darkred;
@@ -95,7 +95,6 @@ footer {
     position: fixed;
     height: 4%;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 100;
     padding: 10px;
     background-color: crimson;

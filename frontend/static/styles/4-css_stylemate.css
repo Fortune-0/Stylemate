@@ -1,12 +1,11 @@
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web', serif;
     background-color: antiquewhite;
 }
 footer {
     position: fixed;
     height: 30px;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 100;
     background-color: crimson;
     color: white;
@@ -29,7 +28,6 @@ footer {
     top: 15;
     padding-top: 30px;
     font-size: 50px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: crimson;
     background-color: rgb(248, 247, 245);
     height: 167px;
@@ -126,7 +124,7 @@ div.userform {
     position: absolute;
     width: 40%;
     margin-left: 10px;
-    top: 15px;
+    top: 20px;
 }
 .ageno:hover {
     background-color: antiquewhite;
