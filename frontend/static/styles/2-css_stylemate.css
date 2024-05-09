@@ -80,6 +80,16 @@ button:hover {
 .display:hover {
     background-color: rgb(241, 209, 214);
 }
+.down {
+    position: fixed; /* Fixed/Sticky position */
+    bottom: 0; /* Place the button at the bottom of the page */
+    right: 0; /* Place the button 0px from the right */
+    width: auto; /* Let the button width adjust to its content */
+    background-color: #ddd; /* Add a background color */
+    padding: 10px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align text */
+}
 footer {
     position: fixed;
     height: 4%;
