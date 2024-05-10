@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 class Database:
-    """Database class possessing useful methods for working with stylemate database"""
+    """Database class with useful methods for working with stylemate database"""
 
     table_classes = {"tops": Top, "bottoms": Bottom, "user": User}
 
@@ -88,6 +88,7 @@ class Database:
                     return ({cty.name: cty.number})
             else:
                 return ("User does not have any '{}'".format(cty_name))
+
     def delete_cty(self, table_name, cty_name):
         """Delete a particular category in a table"""
         if table_name not in Database.table_classes.keys():
@@ -100,6 +101,7 @@ class Database:
                 return ({})
         else:
             return ("User does not have any '{}'".format(cty_name))
+
     def no_of_items(self):
         """Return dictionary containing number of items in total in user wardrobe"""
         return_dict = {
@@ -113,6 +115,7 @@ class Database:
         for item in cty_result:
             return_dict["bottoms"] += item.number
         return (return_dict)
+
     def set_user(self, dict):
         """Set name and sex of user in database table user"""
         if len(dict['name']) == 0:
