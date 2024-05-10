@@ -13,8 +13,8 @@ $(document).ready(function () {
         $('.submitstatus').show(10);
         window.location.href = "/";
       },
-      error: function (err, errStr, errMsg) {
-        $('.submitstatus').text(errMsg);
+      error: function (xhr, err, errStr) {
+        $('.submitstatus').text(errStr);
         $('.submitstatus').show(10);
       }
     })

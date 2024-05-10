@@ -6,7 +6,37 @@
             "round-necked sweater",
             "collared shirt"
          ],
-         "plain top"
+         "plain top",
+         "polo shirt",
+         "casual button-down shirt",
+         "flannel shirt",
+         "oxford shirt",
+         "rugby shirt",
+         "baseball shirt",
+         [
+            "t-shirt",
+            "hoodie"
+         ],
+         "crewneck sweater",
+         [
+            "V-neck sweater",
+            "button-down shirt"
+         ],
+         [
+            "button-down shirt",
+            "cardigan"
+         ],
+         "tank top",
+         "rugby shirt",
+         "turtle-neck sweater",
+         "raglan-sleeved baseball shirt",
+         "camp shirt",
+         "denim shirt",
+         "linen shirt",
+         [
+            "fleece jacket",
+            "t-shirt"
+         ]
       ],
       "female": [
          "plain blouse",
@@ -14,27 +44,136 @@
             "sleeveless top",
             "shawl"
          ],
-         "turtle-necked top"
+         "turtle-necked top",
+         "camisole",
+         "crop top",
+         "button-down shirt",
+         "tunic",
+         "off-the-shoulder top",
+         "cold shoulder top",
+         "halter top",
+         "wrap top",
+         "kimono top",
+         [
+            "camisole",
+            "cardigan"
+         ],
+         [
+            "v-neck sweater",
+            "turtle-neck top"
+         ],
+         [
+            "v-neck sweater",
+            "round-neck blouse"
+         ],
+         "denim shirt",
+         "flannel shirt",
+         [
+            "flannel shirt",
+            "camisole"
+         ],
+         "ruffled blouse",
+         "bell-sleeve blouse",
+         "peplum top",
+         "one-shoulder top",
+         "polo shirt",
+         "crochet top",
+         "satin top",
+         "linen top"
       ]
    },
    "dinner": {
       "male": [
          "silk button-down shirt",
-         "plaid T-shirt"
+         "plaid T-shirt",
+         "dress shirt, tie",
+         "henley shirt",
+         "oxford shirt",
+         "flannel shirt",
+         [
+            "v-neck sweater",
+            "button-down shirt"
+         ],
+         [
+            "blazer",
+            "dress shirt"
+         ],
+         [
+            "sport coat",
+            "button-down shirt"
+         ],
+         [
+            "waist coat and tie",
+            "long-sleeved shirt"
+         ],
+         "turtle-neck sweater",
+         "mock neck sweater",
+         "silk polo shirt",
+         "patterned shirt",
+         "dinner suit",
+         "cashmere sweater"
       ],
       "female": [
          "flowered blouse",
-         "top with flared sleeves"
+         "dressy blouse",
+         "top with flared sleeves",
+         [
+            "silk camisole",
+            "blazer"
+         ],
+         [
+            "satin camisole",
+            "jacket"
+         ],
+         "off-the-shoulder top",
+         "wrap top",
+         "peplum top",
+         "lace top",
+         "sequin top",
+         "ruffled blouse",
+         "halter top",
+         "one-shoulder top",
+         "draped top",
+         "bell-sleeve blouse",
+         "embroidered top",
+         "crochet top",
+         "turtle-neck top",
+         "v-neck top",
+         "button-down shirt",
+         "wool cardigan",
+         "cape top",
+         "boat-neck top"
       ]
    },
    "exercise": {
       "male": [
          "sweatshirt",
-         "sleeveless top"
+         "sleeveless toptank top",
+         "long-sleeve performance shirthoodie",
+         "sweatshirt",
+         "muscle tank",
+         "polo shirt",
+         "baseball shirt",
+         "running singlet",
+         "cycling jersey",
+         "compression tank top",
+         "running hoodie",
+         "yoga top",
+         "track jacket",
+         "sleeveless hoodie",
+         "mesh shirt"
       ],
       "female": [
          "sleeveless breathable top",
-         "light long-sleeved cotton blouse"
+         "light long-sleeved cotton blouse",
+         "sports bra",
+         "cycling jersey",
+         "compression tank top",
+         "running hoodie",
+         "yoga top",
+         "track jacket",
+         "sleeveless hoodie",
+         "mesh shirt"
       ]
    }
 }
