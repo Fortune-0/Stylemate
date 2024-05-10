@@ -8,12 +8,10 @@ $(document).ready(function () {
       type: 'GET',
       dataType: 'json',
       success: function (response) {
-        console.log('new' + JSON.stringify(response));
         $('#displayP').text(JSON.stringify(response));
       },
-      error: function (err, errStr) {
-        console.log(errStr);
-        $('div.display').text(errStr);
+      error: function (xhr, err, errStr) {
+        $('div.display').text(`An error occurred. (${err}) Try restarting app.`);
       }
     });
   });

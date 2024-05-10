@@ -44,7 +44,7 @@ $(document).ready(function () {
                 $('#submit_status').text(JSON.stringify(response));
                 $('#submit_status').show(10);
             },
-            error: function (err, errStr) {
+            error: function (xhr, err, errStr) {
                 $('#submit_status').text(errStr);
                 $('#submit_status').show(10);
             }

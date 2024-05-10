@@ -2,34 +2,111 @@
    "casual": {
       "male": [
          "jean trousers",
-         "cargos",
-         "khaki shorts"
+         "cargo pants",
+         "khaki shorts",
+         "chinos",
+         "track pants",
+         "denim shorts",
+         "cargo shorts",
+         "joggers",
+         "linen pants",
+         "dress pants",
+         "jorts",
+         "wool trousers",
+         "harem pants",
+         "yoga pants",
+         "cycling shorts",
+         "leather pants"
       ],
       "female": [
          "flared skirt",
          "straight skirt",
          "leggings",
-         "jean trousers"
+         "boyfriend jeans",
+         "bootcut jeans",
+         "flared jeans",
+         "leggings",
+         "chinos",
+         "cargo pants",
+         "khakis",
+         "sweatpants",
+         "shorts",
+         "midi skirt",
+         "pencil skirt",
+         "maxi skirt",
+         "pleated skirt",
+         "palazzo pants",
+         "jeggings",
+         "bike shorts",
+         "leather pants",
+         "linen trousers",
+         "denim skirt",
+         "wrap skirt"
       ]
    },
    "dinner": {
       "male": [
          "pants trousers",
-         "silk trousers"
+         "silk trouserssuit trousers",
+         "corduroy pants",
+         "tweed trousers",
+         "linen pants",
+         "denim jeans",
+         "pleated pants",
+         "leather pants",
+         "flannel-lined pants",
+         "satin pants"
       ],
       "female": [
          "skirt",
-         "flared skirt"
+         "flared skirt",
+         "dress pants",
+         "palazzo pants",
+         "maxi skirt",
+         "midi skirt",
+         "pencil skirt",
+         "high-waisted skirt",
+         "sequin pants",
+         "velvet skirt",
+         "velvet pants",
+         "lace skirt",
+         "high-waisted wide-leg pants",
+         "tuxedo pants",
+         "crochet skirt"
       ]
    },
    "exercise": {
       "male": [
-         "shorts",
-         "3/4 shorts"
+         "3/4 shortsathletic shorts",
+         "athletic leggings",
+         "track pants",
+         "joggers",
+         "training shorts",
+         "cycling shorts",
+         "sweatpants",
+         "yoga pants",
+         "basketball pants",
+         "hiking pants",
+         "running tights",
+         "spandex shorts",
+         "thermal leggings"
       ],
       "female": [
          "biker shorts",
-         "leggings"
+         "leggings",
+         "yoga pants",
+         "running shorts",
+         "athletic shorts",
+         "capri leggings",
+         "cycling shorts",
+         "joggers",
+         "track pants",
+         "training shorts",
+         "skorts",
+         "high-waisted leggings",
+         "dance shorts",
+         "running tights",
+         "spandex shorts"
       ]
    }
 }
