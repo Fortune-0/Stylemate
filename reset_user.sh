@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Set up the environment for Stylemate
+# Set user status to yes; serialise other dicts
 
 ./json_serialize.py
-

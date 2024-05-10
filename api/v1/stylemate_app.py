@@ -12,8 +12,11 @@ from utils.select_outfit import select_outfit
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+
+# Create Database instance to access user's Stylemate database
 database = Database('stylemate', 'password')
 
+# Get all items in sql database
 @app.route('/api/v1/wardrobe', strict_slashes=False)
 def get_wardrobe():
     wardrobe = {

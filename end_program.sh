@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Set up the environment for Stylemate
+# Kill running sessions
 
 tmux kill-session -t stylemate_web_app
 tmux kill-session -t stylemate_api
