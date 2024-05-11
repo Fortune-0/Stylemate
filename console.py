@@ -30,7 +30,7 @@ class StyleMate(cmd.Cmd):
         try:
             categories = database.get_cty()
             if categories:
-                print("Available categories:")
+                print("Available categories: ")
             for category in categories:
                 print(f"- {category}")
 
@@ -46,16 +46,13 @@ class StyleMate(cmd.Cmd):
 
     def do_exit(self, arg):
         """Exit the program and return to shell"""
+        print("Exiting StyleMate..........")
         return True
 
     def emptyline(self):
         """ overides the empty line method """
         pass
-    # def do_list(self, arg):
-    #     """Show list of avaliable commands"""
-    #     print("all avaliable commands")
-    #     pass
-
+    
     # Retrives all the items from json_file (tops & bottom.json)
     def do_show(self, *args):
         """show wardrobe"""
@@ -70,7 +67,8 @@ class StyleMate(cmd.Cmd):
         output_tops = []
         for key, value in data_tops.items():
             output_tops.append(f"{key}: {value}")
-
+            
+        # convert bottoms to a table
         output_bottoms = []
         for key, value in data_bottom.items():
             output_bottoms.append(f"{key}: {value}")
@@ -98,25 +96,6 @@ class StyleMate(cmd.Cmd):
 
         except Exception as e:
             print(f"Unexpected error: {e}")
-    
-    #     try:
-    #         conn = mysql.connector.connect(
-    #             host = "localhost",
-    #             user = "root",
-    #             database = "StyleMate_db",
-    #             password = "password"
-    #         )
-    #         cursor = conn.cursor()
-
-    #         cursor.execute(f"Delete selected item with the {item_id} from the database")
-
-    #         conn.commit()
-
-    #         print(f"Item with {item_id} has been deleted.")
-    #     except Exception as e:
-    #         print(f"Error deleting item: {str(e)}")
-    #     finally:
-    #         conn.close()
 
     def do_total(self, database, table_name, count_id):
         """Prints the total number of outfits avaliable"""
