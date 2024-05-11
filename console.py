@@ -5,6 +5,7 @@ from models.top import Top
 from models.user import User
 from utils.database import Database
 import json
+import traceback
 import json_files
 # import mysql.connector
 import sys
@@ -23,6 +24,10 @@ class StyleMate(cmd.Cmd):
     #     username = "",
     #     password = ""
     #     self.database = Database(username, password)
+    # initilizing the database
+    # def __init__(self):
+    #     super().__init__()
+    #     self.database = Database("", "")
 
 
     def do_category(self, database):
@@ -36,12 +41,15 @@ class StyleMate(cmd.Cmd):
 
             else:
                 print(" NO CATEGORIES FOUND IN DATABASE")
-
+        except DatabaseError as e:
+            print(f"Database Error, {e}")
         except Exception as e:
             print(f"Error retriving database {str(e)}")
+            traceback.print_exc();
 
     def do_add():
         """Adds a category"""
+        
         pass
 
     def do_exit(self, arg):
@@ -80,9 +88,9 @@ class StyleMate(cmd.Cmd):
         print("\nBOTTOMS\n")
         for i, item in enumerate(output_bottoms, start=1):
              print(f"{i}. {item}")
-
-        pass
-
+        traceback.print_exc()
+        
+    # Delete an item from the database using the item_id and table name
     def do_delete(self, Database, table_name, item_id):
         """ Delete item with the item_id from database"""
         try:
@@ -96,6 +104,7 @@ class StyleMate(cmd.Cmd):
 
         except Exception as e:
             print(f"Unexpected error: {e}")
+            traceback.print_exc()
 
     def do_total(self, database, table_name, count_id):
         """Prints the total number of outfits avaliable"""
@@ -106,6 +115,7 @@ class StyleMate(cmd.Cmd):
             print('Please enter a valid category')
         except  Exception as e:
             print(f"An error occured: {str(e)}")
+            traceback.print_exc()
 
     def do_gender(self, user_id):
         """ Gets the gender of the User """
@@ -115,29 +125,25 @@ class StyleMate(cmd.Cmd):
             if gender:
                 print(f"User {user_id} is a: {gender}")
             else:
-                print(f"Gender infomation for {user_id} not found in the database.")
+                print(f"Gender infomation for {user_id} not found in the Database!!. Sign-up ")
         except Exception as e:
             print(f" An error Occured {str(e)} .")
+            traceback.print_exc()
 
-        # try:
-        #     user_sex = self.__Session__.query(Database.table_classes.get("User")).first()
-        #     if user_sex:
-        #         print(f"Gender: {user_sex}")
-        #     else:
-        #         print("Current User not found in Database, please sign-up")
-        # except Exception as e:
-        #         print(f"Error retriving User's gender: {str(e)} ")
-
-    # def  do_user_name(self, *args):
-    #     """ Gets the user name of the current User """
-    #     try:
-    #        user = Database.get_user_name():
-    #         if user:
-    #             print(f" Hey: {user} :")
-    #         else:
-    #             print("User not found!!!!")
-    #     except Exception as e:
-    #         print("An error occured : ", str(e))
+    def  do_username(self, *args):
+        """ Gets the user name of the current User """
+        try:
+            user = Database.get_user_name()
+            if user:
+                print(f" Hey: {user} :")
+            else:
+                print("User not found!!!!")
+        except Exception as e:
+            print("An error occured : ", str(e))
+            traceback.print_exc()
+            
+    def emptyline(self):
+        print("You entered an empty line.\nType 'help or ?' to view commands.")
 
     def lastcmd(self):
         """Last non empty command prefix seen"""
