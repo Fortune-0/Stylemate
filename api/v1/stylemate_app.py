@@ -19,6 +19,7 @@ database = Database('stylemate', 'password')
 # Get all items in sql database
 @app.route('/api/v1/wardrobe', strict_slashes=False)
 def get_wardrobe():
+    """Get all items in user's wardrobe"""
     wardrobe = {
         'tops': [],
         'bottoms': []
@@ -29,24 +30,28 @@ def get_wardrobe():
 
 @app.route('/api/v1/get_info/<string:cty_name>', strict_slashes=False)
 def get_cty_info(cty_name):
+    """Get information about a clothing item category"""
     cty_name = cty_name.replace("_", " ")
     return (jsonify(database.get_cty(cty_name)))
 
 @app.route('/api/v1/delete/<string:table_name>/<string:cty_name>',
 strict_slashes=False, methods=['DELETE'])
 def delete_cty(table_name, cty_name):
+    """Delete an item from the user's wardrobe"""
     cty_name = cty_name.replace("_", " ")
     result = database.delete_cty(table_name, cty_name)
     return (result)
 
 @app.route('/api/v1/outfit/<string:theme>', strict_slashes=False)
 def get_outfit(theme):
+    """Get an outfit recommendation based on theme"""
     return (jsonify(select_outfit(theme.lower())))
     print(theme)
 
 @app.route('/api/v1/add_info/<string:table_name>',
 strict_slashes=False, methods=['POST'])
 def edit_info(table_name):
+    """Edit information in the user's wardrobe"""
     try:
         cty = request.get_json()
     except Exception as e:
@@ -59,10 +64,12 @@ def edit_info(table_name):
 
 @app.route('/api/v1/no_of_items', strict_slashes=False)
 def get_no_of_items():
+    """Get the number of items present in the user's wardrobe"""
     return(jsonify(database.no_of_items()))
 
 @app.route('/api/v1/outfit_items', strict_slashes=False)
 def get_outfit_items():
+    """Get all clothing items available in the program"""
     outfit_items = {
         'outfit_tops': {},
         'outfit_bottoms': {},
@@ -78,6 +85,7 @@ def get_outfit_items():
 
 @app.route('/api/v1/get_description', strict_slashes=False, methods=['POST'])
 def handle_description():
+    """Updates database with wardrobe description user input"""
     try:
         form_obj = request.form
     except Exception as e:
@@ -97,6 +105,7 @@ def handle_description():
         return (jsonify("Your input has been recorded!"))
 @app.route('/api/v1/set_user', strict_slashes=False, methods=['POST'])
 def set_user():
+    """Update SQL Database with user information"""
     user_dict = {}
     user_obj = request.form
     if len(user_obj) != 3:
@@ -111,10 +120,12 @@ def set_user():
     return (reply)
 @app.route('/api/v1/get_display_items', strict_slashes=False)
 def get_outfit_items_for_display():
+    """Get all clothing items for display on html page"""
     user_sex = database.get_user_sex()
     items_top_set = set()
     items_bottom_set = set()
 
+    # Get clothing items in the 'top' category
     with open ("json_files/tops.json") as json_top:
         top_dict = json.load(json_top)
         for theme, item_dict in top_dict.items():
@@ -125,12 +136,14 @@ def get_outfit_items_for_display():
                         items_top_set.add(i)
                 else:
                     items_top_set.add(item)
+    # Get clothing items in the 'bottom' category
     with open ("json_files/bottoms.json") as json_bottom:
         bottom_dict = json.load(json_bottom)
         for theme, item_dict in bottom_dict.items():
             items_list = item_dict[user_sex]
             for item in items_list:
                 items_bottom_set.add(item)
+    # Get clothing items in the formal category
     with open ("json_files/formal_outfits.json") as json_formal:
         formal_dict = json.load(json_formal)
         forms_list = formal_dict[user_sex]
@@ -139,14 +152,19 @@ def get_outfit_items_for_display():
                 items_bottom_set.add(item)
             for item in form_fit[1]:
                 items_top_set.add(item)
-
+    # Compile all categories into a single dictionary
     all_items = {'tops': items_top_set, 'bottoms': items_bottom_set}
     all_items_db = {}
     return_dict = {'tops': [], 'bottoms': []}
 
+    # Get clothing items from the users wardrobe (SQL Database) and
+    # update dictionary
     all_items_db.update(database.get_cty_numbers("tops"))
     all_items_db.update(database.get_cty_numbers("bottoms"))
 
+    # Check each item in the list of clothing items available in the json files
+    # to see if they are present in the SQL Database
+    # Make their number value 0 if not
     for item in all_items['tops']:
         if item in all_items_db.keys():
             return_dict['tops'].append({item: all_items_db[item]})
@@ -157,6 +175,7 @@ def get_outfit_items_for_display():
             return_dict['bottoms'].append({item: all_items_db[item]})
         else:
             return_dict['bottoms'].append({item: 0})
+
     return (jsonify(return_dict))
 
 

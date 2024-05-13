@@ -11,9 +11,10 @@ database.add_cty({"name": "suit skirt", "number": 3}, "bottoms")
 database.add_cty({"name": "suit", "number": 3}, "tops")
 database.add_cty({"name": "camisole", "number": 7}, "tops")
 database.add_cty({"name": "jacket", "number": 7}, "tops")
+database.add_cty({"name": "jean trousers", "number": 7}, "bottoms")
 database.add_cty({"name": "", "number": 7}, "tops")
 database.add_cty({"name": "plaid skirt", "number": 7}, "bottoms")
 
-outfit = select_outfit("formal")
+outfit = select_outfit("casual")
 print(outfit)
 
