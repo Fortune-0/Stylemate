@@ -123,6 +123,8 @@ outfit_tops_dict = {
                    'light long-sleeved cotton blouse',
                    'sports bra',
                    'cycling jersey',
+                   'sleeveless top',
+                   'tank top',
                    'compression tank top',
                    'running hoodie',
                    'yoga top',
@@ -278,8 +280,8 @@ formal_outfits_dict = {
 status_dict = {'new': 'yes'}
 
 # Serialize all dictionaries into their respective json files"
-with open ("json_files/colours.json", "w") as json_colour:
-    json.dump(colours_dict, json_colour, indent = 3)
+#with open ("json_files/colours.json", "w") as json_colour:
+#    json.dump(colours_dict, json_colour, indent = 3)
 with open ("json_files/tops.json", "w") as json_top:
     json.dump(outfit_tops_dict, json_top, indent = 3)
 with open ("json_files/bottoms.json", "w") as json_bottom:

@@ -9,7 +9,7 @@ def select_bottom(theme):
     _database = Database('stylemate', 'password')
 
     # Open json file and retrieve all clothing item categories based on theme and sex
-    with open("json_files/outfit_bottoms.json", "r") as outfit_bottoms:
+    with open("json_files/bottoms.json", "r") as outfit_bottoms:
         outfit_data = json.load(outfit_bottoms)
 
         for key in outfit_data.keys():
@@ -17,7 +17,7 @@ def select_bottom(theme):
                 # Perform filtering based on sex
                 gender = _database.get_user_sex()
                 # Get user's wardrobe items without 0 number value
-                user_bottoms = database.get_cty_numbers("bottoms")
+                user_bottoms = _database.get_cty_numbers("bottoms")
                 user_bottoms = {k: v for k, v in user_bottoms.items() if v > 0}
                 data_unfiltered = outfit_data[key][gender]
                 # Filter to obtain list of clothing item categories present in user's wardrobe

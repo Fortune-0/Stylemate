@@ -8,7 +8,7 @@ def select_top(theme, no_tops):
     """Selects top randomly from list of 'top' items"""
     database = Database('stylemate', 'password')
 
-    with open("json_files/outfit_tops.json", "r") as outfit_tops:
+    with open("json_files/tops.json", "r") as outfit_tops:
         outfit_data = json.load(outfit_tops)
         data_filtered = []
 
@@ -24,7 +24,7 @@ def select_top(theme, no_tops):
                 # Filter to obtain list of clothing item categories present in user's wardrobe
                 data_filtered = []
                 for item in data_unfiltered:
-                    # Handle string-type top category 
+                    # Handle string-type top category
                     if type(item) == str and item in user_tops:
                         data_filtered.append(item)
                     # Handle list-type top category
@@ -32,6 +32,7 @@ def select_top(theme, no_tops):
                         data_filtered.append(item)
                     else:
                         continue
+
                 if len(data_filtered) == 0:
                     return ("User does not possess enough clothes to form outfit.")
 
