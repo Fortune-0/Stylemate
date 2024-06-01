@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import cmd
 from models.base import BaseItem
 from models.bottom import Bottom
@@ -7,10 +9,9 @@ from utils.database import Database
 import json
 import traceback
 import json_files
-import mysql.connector
+#import mysql.connector
 import sys
 import os
-from utils.database import Session
 
 class StyleMate(cmd.Cmd):
     """The StyleMate command line interface."""
@@ -18,12 +19,12 @@ class StyleMate(cmd.Cmd):
     intro = "Welcome to the StyleMate Command Line Interface!\n\nType help or ? to list all available commands.\n"\
             "To exit type exit or press Ctrl+D.\n\n"
     classes = {"base": BaseItem, 'top': Top, 'bottoms': Bottom, 'database': Database}
-    
+
     # initilizing the database
     def __init__(self):
         super().__init__()
-        username = "",
-        password = ""
+        username = "stylemate",
+        password = "password"
         self.database = Database(username, password)
 
     # Shows all the available category in the database
@@ -56,7 +57,7 @@ class StyleMate(cmd.Cmd):
         with open('json_files/tops.json', 'r') as f:
             data_tops = json.load(f)
 
-    # opens bottoms.json in read mode 
+    # opens bottoms.json in read mode
         with open('json_files/bottoms.json', 'r') as f:
             data_bottom = json.load(f)
         # print (data_tops, data_bottom)
@@ -65,7 +66,7 @@ class StyleMate(cmd.Cmd):
         output_tops = []
         for key, value in data_tops.items():
             output_tops.append(f"{key}: {value}")
-            
+
         # convert bottoms to a table
         output_bottoms = []
         for key, value in data_bottom.items():
@@ -79,13 +80,13 @@ class StyleMate(cmd.Cmd):
         for i, item in enumerate(output_bottoms, start=1):
              print(f"{i}. {item}")
         traceback.print_exc()
-    
+
     # shows all the outfit in tops and bottoms from the database
     def do_showdb(self, args):
         '''Retrives all the outfits stored in the database'''
         try:
             tops = self.database.get_all_cty('tops')
-            
+
             bottoms = self.database.get_all_cty('bottoms')
             if tops or bottoms:
                 print("Available outfits:")
@@ -99,7 +100,7 @@ class StyleMate(cmd.Cmd):
                 print("No outfits found in the database.")
         except Exception as e:
             print(f"Error retrieving outfits from database: {str(e)}")
-        
+
     # Delete an item from the database using the item_id and table name
     def do_delete(self, Database, table_name, item_id):
         """ Delete item with the item_id from database"""
@@ -151,7 +152,7 @@ class StyleMate(cmd.Cmd):
         except Exception as e:
             print("An error occured : ", str(e))
             traceback.print_exc()
-            
+
     def emptyline(self):
         """ overides the empty line method """
         print("You entered an empty line.\nType 'help or ?' to view commands.")
@@ -165,7 +166,7 @@ class StyleMate(cmd.Cmd):
         print('Restarting...')
         os.system('python console.py')
         os._exit(1)
-        
+
 
 if __name__ == "__main__":
     StyleMate().cmdloop()
