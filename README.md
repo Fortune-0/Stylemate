@@ -84,7 +84,7 @@ If you wish to change your user information,
 - Run _reset_user.sh_
 - Navigate to your web browser and enter:
   ```
-  http://0.0.0.0:5000
+  http://0.0.0.0:5001
   ```
 - You can now input your new information
   
