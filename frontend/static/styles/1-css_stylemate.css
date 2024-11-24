@@ -74,7 +74,7 @@ button.select {
 .header:hover {
     color: darkred;
 }
-button:hover {
+button.select:hover {
     background-color: rgb(188, 88, 178);
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
