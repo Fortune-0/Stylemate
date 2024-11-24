@@ -1,127 +1,114 @@
-html {
-    font-family: 'Titillium Web', serif;
-    background-color: antiquewhite;
-}
 .themes {
-    position: fixed;
-    width: 100%;
-    background-color: rgb(248, 219, 180);
-    height: 52px;
-    top: 110px;
-    padding-left: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 .theme {
-    position: absolute;
-    width: 10%;
-    font-size: 20px;
-    top: 5%;
-    height: 90%
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 9rem;
+    font-size: 1rem;
+    gap: 3rem;
 }
-.theme1 {
-    left: 10%;
-}
-.theme2 {
-    left: 30%;
-}
-.theme3 {
-    left: 50%;
-}
-.theme4 {
-    left: 70%;
-}
-.desc {
-    position: relative;
-    color: #752b75;
-    top: 50px;
-    font-size: 15px;
-    text-align: center;
-}
-.header {
-    position: fixed;
-    top: 0;
-    padding-top: 5px;
-    font-size: 50px;
-    color: crimson;
-    background-color: rgb(248, 247, 245);
-    height: 90px;
-    width: 100%;
-    text-align: center
-}
-.header:hover {
-    color: darkred;
-}
-button {
-    position: absolute;
-    width: 60%;
-    left: 20%;
-    height: 80%;
-    top: 10%;
-    background-color: #551455;
-    color: white;
-    border-radius: 3px;
-    box-shadow: 2px 2px #ca78ca;
+button.theme_btn {
+    box-sizing: border-box;
+    background-color: #4f1c4f;
+    box-shadow: 0.1rem 0.1rem 0.6rem rgb(223, 123, 143);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: antiquewhite;
+    font-size: 0.9rem;
+    width: max-content;
+    border: 0.5rem;
+    transition: padding 0.2s;
     overflow-wrap: break-word;
     overflow-y: clip;
 }
-button:hover {
-    background-color: rgb(223, 123, 143, 12);
+.theme_btn:hover {
+    background-color: rgb(155, 73, 147);
+    padding: 1.2rem;
 }
 .display {
-    position: fixed;
-    top: 210px;
-    height: 100px;
-    width: 60%;
-    left: 20%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 1rem;
     background-color: rgb(252, 220, 226);
-    font-size: 25px;
+    font-size: 1.5rem;
     color: purple;
     text-align: center;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    
 }
-.display:hover {
-    background-color: rgb(241, 209, 214);
-}
-.down {
-    position: fixed; /* Fixed/Sticky position */
-    bottom: 0; /* Place the button at the bottom of the page */
-    right: 0; /* Place the button 0px from the right */
-    width: auto; /* Let the button width adjust to its content */
-    background-color: #ddd; /* Add a background color */
-    padding: 10px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center-align text */
-}
-footer {
-    position: fixed;
-    height: 4%;
-    text-align: center;
-    font-weight: 100;
-    padding: 10px;
-    background-color: crimson;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    left: 0
+@keyframes aniImages {
+    from {gap: 3rem;}
+    to {gap: 0rem;}
 }
 .images {
-    position: relative;
+    box-sizing: border-box;
+    background-color: burlywood;
+    padding: 3rem;
     display: flex;
     align-items: center;
     flex-direction: row;
-    top: 260px;
-    height: 260px;
     width: 80%;
-    left: 6%;
+    height: max-content;
     overflow-y: clip;
+    overflow-x: hidden;
     text-align: center;
+    animation-name: aniImages ;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-radius: 1rem;
 }
 .imgdiv {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 25%;
     text-align: center;
-    border: 1px solid green;
+    border-color: purple;
     border-radius: 7px;
     overflow-y: clip;
     overflow-x: clip;
-    height: 250px;
+    height: max-content;
 }
-
+div.page2 {
+    position: relative;
+    box-sizing: border-box;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    gap: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+}
+div.clothes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    
+}
+.imgg {
+    height: 10rem;
+    width: 9rem;
+}

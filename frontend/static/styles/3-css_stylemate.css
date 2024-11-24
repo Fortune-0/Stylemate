@@ -2,25 +2,6 @@ html {
     font-family: 'Titillium Web', serif;
     background-color: antiquewhite;
 }
-footer {
-    position: fixed;
-    height: 4%;
-    text-align: center;
-    font-weight: 100;
-    padding: 10px;
-    background-color: crimson;
-    color: white;
-    width: 100%;
-    bottom: 0;
-    left: 0
-}
-.desc {
-    position: relative;
-    color: #752b75;
-    top: 50px;
-    font-size: 15px;
-    text-align: center;
-}
 .cty1 {
     position: absolute;
     font-size: 30px;
@@ -48,23 +29,6 @@ footer {
     width: 100%;
     margin-top: 10px;
     left: 0;
-}
-.header {
-    position: fixed;
-    top: 0;
-    padding-top: 5px;
-    font-size: 50px;
-    color: crimson;
-    background-color: rgb(248, 247, 245);
-    height: 90px;
-    width: 100%;
-    text-align: center;
-}
-.header:hover {
-    color: darkred;
-}
-button:hover {
-    background-color: rgb(223, 123, 143, 12);
 }
 label {
     list-style-type: none;
